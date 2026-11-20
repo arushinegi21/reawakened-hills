@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Char Dham Guide | Reawakened Hills</title>
+    
+    <!-- Google Fonts & Bootstrap 5 CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-green: #1b4332;
+            --radius-xl: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2b2d42;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 16px 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--brand-green) !important;
+        }
+
+        .hero-banner {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), 
+                        url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            color: white;
+            padding: 70px 0;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .dham-card {
+            border: none;
+            border-radius: var(--radius-xl);
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .dham-img {
+            height: 320px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .info-badge {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: #ffffff;
+                padding: 16px;
+                border-radius: 16px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                margin-top: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                padding: 50px 0 35px;
+                border-radius: 0 0 20px 20px;
+            }
+            .hero-banner h1 {
+                font-size: 2rem !important;
+            }
+            .dham-img {
+                height: 220px;
+            }
+            .dham-card {
+                margin-bottom: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-mountain-sun me-2"></i>Reawakened Hills
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold active text-success" href="chardham.html">Char Dham Guide</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="hidden-gems.html">Hidden Gems</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#explore" class="btn btn-outline-success rounded-pill px-4 btn-sm fw-bold">Explore Homestays</a>
+                    </li>
+                    <li class="nav-item ms-lg-2" id="navAuthSlot">
+                        <div class="d-flex align-items-center gap-1">
+                            <a href="login.html" class="btn btn-outline-dark rounded-pill px-3 btn-sm fw-bold">Log In</a>
+                            <a href="signup.html" class="btn btn-success rounded-pill px-3 btn-sm fw-bold" style="background-color: var(--brand-green); border-color: var(--brand-green);">Sign Up</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero-banner text-center">
+        <div class="container">
+            <h1 class="fw-bold display-5 mb-2">Char Dham Yatra Guide</h1>
+            <p class="lead text-white-50 max-w-600 mx-auto">An informational guide to the four sacred shrines of Uttarakhand: Yamunotri, Gangotri, Kedarnath, and Badrinath.</p>
+        </div>
+    </header>
+
+    <!-- MAIN GUIDE SECTION -->
+    <main class="container my-5">
+
+        <!-- BRIEF INTRO BOX -->
+        <div class="card border-0 rounded-4 shadow-sm p-4 mb-5 bg-white">
+            <h4 class="fw-bold text-success mb-2"><i class="fa-solid fa-compass me-2"></i>About the Pilgrimage</h4>
+            <p class="text-muted mb-0">The Char Dham Yatra is traditional pilgrimage circuit located in the high Himalayas of Uttarakhand. Pilgrims traditionally visit the four shrines in a clockwise direction starting from West to East: <strong>Yamunotri → Gangotri → Kedarnath → Badrinath</strong>. Staying in local village homestays along the route offers pilgrims affordable, authentic rest points away from overcrowded commercial centers.</p>
+        </div>
+
+        <!-- 1. YAMUNOTRI -->
+        <article class="dham-card">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5">
+                    <img src="https://uttarakhandtourism.gov.in/assets/media/Yamunotri_under%20banner%20image.jpg" class="dham-img" alt="Yamunotri Temple">
+                </div>
+                <div class="col-md-7 p-4 p-md-5">
+                    <span class="badge bg-warning text-dark fw-bold mb-2">1. Yamunotri Dham</span>
+                    <h2 class="fw-bold mb-3">Yamunotri Temple</h2>
+                    <p class="text-muted mb-4">Yamunotri is the source of the sacred Yamuna River and the first stop in the traditional Char Dham circuit. Situated at an altitude of 3,291 meters in the Uttarkashi district, the temple is dedicated to Goddess Yamuna. A key highlight here is the <em>Surya Kund</em>, a natural hot water thermal spring near the temple where devotees cook rice and potatoes wrapped in cloth as sacred prasad.</p>
+                    
+                    <div class="mb-2">
+                        <span class="info-badge"><i class="fa-solid fa-mountain text-danger me-1"></i> Altitude: 3,291 m</span>
+                        <span class="info-badge"><i class="fa-solid fa-person-walking text-primary me-1"></i> Trek: 6 km from Janki Chatti</span>
+                        <span class="info-badge"><i class="fa-solid fa-location-dot text-success me-1"></i> District: Uttarkashi</span>
+                        <span class="info-badge"><i class="fa-solid fa-calendar text-warning me-1"></i> Best Time: May to October</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 2. GANGOTRI -->
+        <article class="dham-card">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 order-md-2">
+                    <img src="https://cdn.britannica.com/30/264930-050-DBC3A190/Bhagirathi-River-in-Surya-Kund-Uttarakhand-India-2024.jpg" class="dham-img" alt="Gangotri Shrine">
+                </div>
+                <div class="col-md-7 p-4 p-md-5 order-md-1">
+                    <span class="badge bg-warning text-dark fw-bold mb-2">2. Gangotri Dham</span>
+                    <h2 class="fw-bold mb-3">Gangotri Temple</h2>
+                    <p class="text-muted mb-4">Gangotri is the seat of Goddess Ganga and the origin site of the river Bhagirathi (the primary source stream of the Ganges). Nestled among pine forests and towering peaks at 3,100 meters altitude, the temple is built of white granite. Unlike Yamunotri, Gangotri is directly accessible by road, passing through the beautiful pine and apple orchard villages of the Harsil Valley.</p>
+                    
+                    <div class="mb-2">
+                        <span class="info-badge"><i class="fa-solid fa-mountain text-danger me-1"></i> Altitude: 3,100 m</span>
+                        <span class="info-badge"><i class="fa-solid fa-car text-primary me-1"></i> Access: Direct Road Access</span>
+                        <span class="info-badge"><i class="fa-solid fa-location-dot text-success me-1"></i> Base Town: Harsil / Uttarkashi</span>
+                        <span class="info-badge"><i class="fa-solid fa-calendar text-warning me-1"></i> Best Time: May to October</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 3. KEDARNATH -->
+        <article class="dham-card">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5">
+                    <img src="https://www.bizarexpedition.com/_next/image?url=%2Fapi%2Fuploads%2Fblogdetail%2Ffile-1763102636709.webp&w=1920&q=75" class="dham-img" alt="Kedarnath Temple">
+                </div>
+                <div class="col-md-7 p-4 p-md-5">
+                    <span class="badge bg-warning text-dark fw-bold mb-2">3. Kedarnath Dham</span>
+                    <h2 class="fw-bold mb-3">Kedarnath Temple</h2>
+                    <p class="text-muted mb-4">Kedarnath is one of the most revered shrines dedicated to Lord Shiva and forms one of the 12 sacred Jyotirlingas in India. Located near the Mandakini River at an altitude of 3,583 meters, it stands against the dramatic backdrop of snow-clad Himalayan peaks. Reaching Kedarnath requires a steep 16-kilometer mountain trek starting from the base camp at Gaurikund.</p>
+                    
+                    <div class="mb-2">
+                        <span class="info-badge"><i class="fa-solid fa-mountain text-danger me-1"></i> Altitude: 3,583 m</span>
+                        <span class="info-badge"><i class="fa-solid fa-person-walking text-primary me-1"></i> Trek: 16 km from Gaurikund</span>
+                        <span class="info-badge"><i class="fa-solid fa-location-dot text-success me-1"></i> District: Rudraprayag</span>
+                        <span class="info-badge"><i class="fa-solid fa-calendar text-warning me-1"></i> Best Time: May to October</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- 4. BADRINATH -->
+        <article class="dham-card">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-5 order-md-2">
+                    <img src="https://www.chardhamtour.in/assets/images/tourism/badrinath-temples.webp" class="dham-img" alt="Badrinath Temple">
+                </div>
+                <div class="col-md-7 p-4 p-md-5 order-md-1">
+                    <span class="badge bg-warning text-dark fw-bold mb-2">4. Badrinath Dham</span>
+                    <h2 class="fw-bold mb-3">Badrinath Temple</h2>
+                    <p class="text-muted mb-4">Dedicated to Lord Vishnu, Badrinath is the final shrine in the Char Dham circuit. Located on the banks of the Alaknanda River between the Nar and Narayan mountain ranges, the temple features a colorful 50-foot-tall painted facade. It is situated just 3 kilometers from Mana Village—India's first border village—making it a prime hub for both spiritual pilgrimage and rural homestay tourism.</p>
+                    
+                    <div class="mb-2">
+                        <span class="info-badge"><i class="fa-solid fa-mountain text-danger me-1"></i> Altitude: 3,133 m</span>
+                        <span class="info-badge"><i class="fa-solid fa-car text-primary me-1"></i> Access: Direct Road Access</span>
+                        <span class="info-badge"><i class="fa-solid fa-location-dot text-success me-1"></i> District: Chamoli</span>
+                        <span class="info-badge"><i class="fa-solid fa-calendar text-warning me-1"></i> Best Time: May to October</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1"><i class="fa-solid fa-mountain-sun text-success me-2"></i>Reawakened Hills - Reviving Ghost Villages in Uttarakhand</p>
+            <small class="text-muted">MCA Minor Project | Jagan Institute of Management Studies (JIMS)</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const stored = localStorage.getItem('reawakened_user');
+                if (stored) {
+                    const user = JSON.parse(stored);
+                    const slot = document.getElementById('navAuthSlot');
+                    if (slot) {
+                        slot.innerHTML = `
+                            <div class="d-flex align-items-center gap-2">
+                                <a href="profile.html" class="btn btn-light rounded-pill px-3 btn-sm fw-bold border"><i class="fa-solid fa-circle-user text-success me-1"></i> Profile (${user.name.split(' ')[0]})</a>
+                                <button class="btn btn-outline-danger rounded-pill px-3 btn-sm fw-bold" onclick="localStorage.removeItem('reawakened_user'); location.reload();">Log Out</button>
+                            </div>
+                        `;
+                    }
+                }
+            } catch(e) {}
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile & Dashboard | Reawakened Hills</title>
+
+    <!-- Google Fonts & Bootstrap 5 CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-green: #1b4332;
+            --brand-green-hover: #081c15;
+            --brand-gold: #d4a373;
+            --radius-xl: 20px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f9fa;
+            color: #2b2d42;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 14px 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--brand-green) !important;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .profile-header-banner {
+            background: linear-gradient(135deg, var(--brand-green) 0%, #2d6a4f 100%);
+            height: 130px;
+            position: relative;
+        }
+
+        .avatar-circle {
+            width: 90px;
+            height: 90px;
+            background: #ffffff;
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: var(--brand-green);
+            margin-top: -45px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-brand {
+            background-color: var(--brand-green);
+            color: white;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 9px 18px;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-green-hover);
+            color: white;
+        }
+
+        .info-pill {
+            background-color: #f1f5f9;
+            padding: 10px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .dashboard-tab-btn {
+            font-weight: 700;
+            border-radius: 50rem;
+            padding: 8px 20px;
+            color: #495057;
+            border: 1px solid #dee2e6;
+            background-color: #ffffff;
+            transition: all 0.2s;
+        }
+        .dashboard-tab-btn.active {
+            background-color: var(--brand-green) !important;
+            color: #ffffff !important;
+            border-color: var(--brand-green) !important;
+        }
+
+        .listing-manage-card {
+            border: 1px solid #e9ecef;
+            border-radius: 16px;
+            background: #ffffff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            overflow: hidden;
+        }
+        .listing-manage-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .listing-thumb-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+            background-color: #e9ecef;
+        }
+        .listing-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .current-photos-grid {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .current-photo-item {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid #ced4da;
+            flex-shrink: 0;
+        }
+
+        .img-preview-box {
+            display: none;
+            width: 100%;
+            max-height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            margin-top: 6px;
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1090;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-mountain-sun me-2 text-success"></i>Reawakened Hills
+            </a>
+            <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <i class="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="chardham.html">Char Dham Guide</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="hidden-gems.html">Hidden Gems</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html#explore">Find Stays</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+                    <a href="index.html" class="btn btn-outline-secondary rounded-pill px-3 btn-sm fw-semibold">
+                        <i class="fa-solid fa-arrow-left me-1"></i> Back to Stays
+                    </a>
+                    <button class="btn btn-outline-danger rounded-pill px-3 btn-sm fw-bold" onclick="handleLogout()">
+                        <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Log Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN PROFILE VIEW -->
+    <main class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-11 col-12">
+                
+                <!-- Not Logged In Alert -->
+                <div id="notLoggedInAlert" class="card border-0 rounded-4 p-5 text-center shadow-sm d-none">
+                    <div class="text-warning fs-1 mb-3"><i class="fa-solid fa-lock"></i></div>
+                    <h4 class="fw-bold mb-2">You are not logged in</h4>
+                    <p class="text-muted small mb-4">Please log in to your account to view your profile and manage your ancestral homes or reservations.</p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="login.html?redirect=profile.html" class="btn btn-brand rounded-pill px-4">Log In</a>
+                        <a href="signup.html?redirect=profile.html" class="btn btn-outline-dark rounded-pill px-4">Create Account</a>
+                    </div>
+                </div>
+
+                <!-- Active Profile Card -->
+                <div id="profileContainer" class="profile-card d-none">
+                    <!-- Banner -->
+                    <div class="profile-header-banner"></div>
+
+                    <div class="px-4 pb-4">
+                        <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+                            <div class="d-flex align-items-end gap-3">
+                                <div class="avatar-circle">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="mb-1">
+                                    <h3 class="fw-bold mb-0" id="userName">User Name</h3>
+                                    <span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill" id="userRole">
+                                        Role
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-brand rounded-pill px-3 btn-sm fw-bold" onclick="openHostModal()">
+                                    <i class="fa-solid fa-plus me-1"></i> List Ancestral Home
+                                </button>
+                                <button class="btn btn-outline-danger rounded-pill px-3 btn-sm fw-bold" onclick="handleLogout()">
+                                    <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Log Out
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Details Grid -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6 col-lg-3 col-12">
+                                <div class="info-pill mb-0 h-100">
+                                    <i class="fa-solid fa-envelope text-success fs-5"></i>
+                                    <div class="overflow-hidden">
+                                        <small class="text-muted d-block" style="font-size:0.75rem;">Email Address</small>
+                                        <strong id="userEmail" class="text-truncate d-block small">email@example.com</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 col-12">
+                                <div class="info-pill mb-0 h-100">
+                                    <i class="fa-solid fa-phone text-success fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block" style="font-size:0.75rem;">Phone Number</small>
+                                        <strong id="userPhone" class="small">+91 Not Provided</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 col-12">
+                                <div class="info-pill mb-0 h-100">
+                                    <i class="fa-solid fa-house-user text-success fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block" style="font-size:0.75rem;">My Properties Listed</small>
+                                        <strong id="statListingsCount" class="text-success small">0 Stays</strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 col-12">
+                                <div class="info-pill mb-0 h-100">
+                                    <i class="fa-solid fa-shield-halved text-success fs-5"></i>
+                                    <div>
+                                        <small class="text-muted d-block" style="font-size:0.75rem;">Trust Badge</small>
+                                        <strong class="text-success small"><i class="fa-solid fa-circle-check me-1"></i> Verified Host</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HOST NEW BOOKINGS NOTIFICATION ALERT BANNER -->
+                        <div id="hostNewBookingsAlert" class="alert alert-success border-success rounded-4 p-3 mb-4 d-none shadow-sm">
+                            <!-- Populated dynamically when host has received bookings -->
+                        </div>
+
+                        <!-- NAVIGATION TABS: MY LISTINGS vs GUEST BOOKINGS ON MY HOMES vs MY RESERVATIONS -->
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 border-bottom pb-3 mb-4">
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button class="dashboard-tab-btn active" id="tabMyListings" onclick="switchDashboardTab('listings')">
+                                    <i class="fa-solid fa-house-chimney me-1"></i> My Listed Ancestral Homes 
+                                    <span class="badge bg-success ms-1" id="badgeListingsCount">0</span>
+                                </button>
+                                <button class="dashboard-tab-btn" id="tabHostBookings" onclick="switchDashboardTab('host-bookings')">
+                                    <i class="fa-solid fa-bell text-danger me-1"></i> Guest Bookings on My Homes
+                                    <span class="badge bg-danger ms-1" id="badgeHostBookingsCount">0</span>
+                                </button>
+                                <button class="dashboard-tab-btn" id="tabMyBookings" onclick="switchDashboardTab('bookings')">
+                                    <i class="fa-solid fa-calendar-check me-1"></i> My Personal Trip Reservations 
+                                    <span class="badge bg-secondary ms-1" id="badgeBookingsCount">0</span>
+                                </button>
+                            </div>
+                            <button class="btn btn-sm btn-outline-success rounded-pill fw-bold" onclick="refreshDashboardData()">
+                                <i class="fa-solid fa-arrows-rotate me-1"></i> Refresh Records
+                            </button>
+                        </div>
+
+                        <!-- TAB CONTENT 1: MY LISTED HOMESTAYS -->
+                        <div id="sectionListings">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-0 text-dark">Ancestral Homes Listed By You</h5>
+                                    <small class="text-muted">Manage your heritage properties, update nightly rates, modify descriptions, and manage verified photos.</small>
+                                </div>
+                                <button class="btn btn-brand rounded-pill btn-sm fw-bold" onclick="openHostModal()">
+                                    <i class="fa-solid fa-plus me-1"></i> Add Another Home
+                                </button>
+                            </div>
+
+                            <!-- Dynamic Properties Container -->
+                            <div id="myListingsContainer" class="row g-4">
+                                <div class="col-12 text-center py-5">
+                                    <div class="spinner-border text-success" role="status"></div>
+                                    <p class="text-muted small mt-2">Loading your listed ancestral homes...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB CONTENT 2: GUEST BOOKINGS ON MY HOMES (HOST NOTIFICATIONS) -->
+                        <div id="sectionHostBookings" class="d-none">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                <div>
+                                    <h5 class="fw-bold mb-0 text-dark">
+                                        <i class="fa-solid fa-bell-concierge text-success me-2"></i>Incoming Guest Bookings & Notifications
+                                    </h5>
+                                    <small class="text-muted">Travelers who confirmed reservations on your ancestral homes in Uttarakhand. Here are all verified guest names, contact details, and dates.</small>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="badge bg-success bg-opacity-10 text-success border border-success px-3 py-2 rounded-pill fw-bold" id="hostRevenueBadge">
+                                        <i class="fa-solid fa-sack-dollar me-1"></i> Total Earnings: ₹0
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Dynamic Host Bookings Container -->
+                            <div id="hostBookingsContainer" class="row g-4">
+                                <div class="col-12 text-center py-5">
+                                    <div class="spinner-border text-success" role="status"></div>
+                                    <p class="text-muted small mt-2">Checking for new guest reservations...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB CONTENT 3: MY PERSONAL TRIP RESERVATIONS -->
+                        <div id="sectionBookings" class="d-none">
+                            <div class="mb-3">
+                                <h5 class="fw-bold mb-0 text-dark">My Trip Reservations</h5>
+                                <small class="text-muted">All active reservations and bookings linked to your account.</small>
+                            </div>
+
+                            <!-- Dynamic Bookings Container -->
+                            <div id="myBookingsContainer" class="row g-3">
+                                <div class="col-12 text-center py-5">
+                                    <div class="spinner-border text-success" role="status"></div>
+                                    <p class="text-muted small mt-2">Loading your reservations...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 1: EDIT ANCESTRAL HOME LISTING (MODIFY DETAILS & PHOTOS) -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="editPropertyModal" tabindex="-1" aria-labelledby="editPropertyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 px-4 pt-4 pb-2">
+                    <div>
+                        <h5 class="fw-bold mb-1" id="editPropertyModalLabel">
+                            <i class="fa-solid fa-pen-to-square text-success me-2"></i>Modify Ancestral Home Listing
+                        </h5>
+                        <small class="text-muted">Update pricing, location details, amenities, or replace verified photos.</small>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('editPropertyModal')"></button>
+                </div>
+
+                <div class="modal-body px-4 py-2">
+                    <div id="editAlert" class="alert alert-danger d-none rounded-3 py-2 small" role="alert"></div>
+
+                    <form id="editPropertyForm" onsubmit="handleEditSubmission(event)">
+                        <input type="hidden" id="editPropId">
+
+                        <div class="row g-3">
+                            <div class="col-md-7 col-12">
+                                <label class="form-label fw-semibold small">Property Title</label>
+                                <input type="text" id="editTitle" class="form-control rounded-3" placeholder="e.g. Negi Heritage Stone Cottage" required>
+                            </div>
+                            <div class="col-md-5 col-12">
+                                <label class="form-label fw-semibold small">Nightly Rate (₹ INR)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light fw-bold">₹</span>
+                                    <input type="number" id="editPrice" class="form-control rounded-end-3" placeholder="e.g. 850" min="200" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12">
+                                <label class="form-label fw-semibold small">Village / Ghost Village</label>
+                                <input type="text" id="editVillage" class="form-control rounded-3" placeholder="e.g. Jardhar Gaon" required>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <label class="form-label fw-semibold small">District</label>
+                                <select id="editDistrict" class="form-select rounded-3" required>
+                                    <option value="Tehri Garhwal">Tehri Garhwal</option>
+                                    <option value="Chamoli">Chamoli</option>
+                                    <option value="Rudraprayag">Rudraprayag</option>
+                                    <option value="Uttarkashi">Uttarkashi</option>
+                                    <option value="Pauri Garhwal">Pauri Garhwal</option>
+                                    <option value="Almora">Almora</option>
+                                    <option value="Pithoragarh">Pithoragarh</option>
+                                    <option value="Nainital">Nainital</option>
+                                    <option value="Bageshwar">Bageshwar</option>
+                                    <option value="Champawat">Champawat</option>
+                                    <option value="Dehradun">Dehradun</option>
+                                    <option value="Haridwar">Haridwar</option>
+                                    <option value="Udham Singh Nagar">Udham Singh Nagar</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">Description & Cultural Story</label>
+                                <textarea id="editDescription" class="form-control rounded-3" rows="3" placeholder="Describe the history of this ancestral house, views, and Himalayan lifestyle..."></textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">Amenities & Offerings</label>
+                                <input type="text" id="editAmenities" class="form-control rounded-3" placeholder="e.g. Free Parking, Wi-Fi, TV, Refrigerator, Kitchen, Traditional Pahadi Meals">
+                                <small class="text-muted d-block mt-1" style="font-size: 0.75rem;">
+                                    Include amenities like: Free Parking, Wi-Fi, TV, Refrigerator, Kitchen, Hot Water, Pahadi Meals.
+                                </small>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small d-flex justify-content-between align-items-center">
+                                    <span><i class="fa-solid fa-map-location-dot text-danger me-1"></i> Google Maps Location Link</span>
+                                    <span class="badge bg-light text-secondary border">Optional</span>
+                                </label>
+                                <input type="url" id="editMapsUrl" class="form-control rounded-3" placeholder="e.g. https://maps.app.goo.gl/... or Google Maps share URL">
+                                <small class="text-muted d-block mt-1" style="font-size: 0.75rem;">
+                                    Paste your exact Google Maps location link. If left blank, it defaults to your village & district.
+                                </small>
+                            </div>
+
+                            <!-- CURRENT PHOTOS DISPLAY -->
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small d-flex justify-content-between align-items-center">
+                                    <span><i class="fa-solid fa-images text-success me-1"></i> Current Verified Photos</span>
+                                    <span class="badge bg-light text-secondary border" id="editCurrentPhotoCount">Photos</span>
+                                </label>
+                                <div id="editCurrentPhotosGallery" class="current-photos-grid p-2 border rounded-3 bg-light">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+
+                            <!-- REPLACE PHOTOS SECTION (OPTIONAL) -->
+                            <div class="col-12">
+                                <div class="border rounded-3 p-3 bg-light">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h6 class="fw-bold mb-0 text-dark">
+                                            <i class="fa-solid fa-camera-rotate text-success me-1"></i> Replace Photos (Optional)
+                                        </h6>
+                                        <span class="badge bg-secondary-subtle text-secondary">Leave empty to keep current photos</span>
+                                    </div>
+                                    <small class="text-muted d-block mb-3">
+                                        If replacing photos, you must upload <strong>minimum 3 photos</strong> (Whole House, Room, & Extra View) and up to 5 photos maximum.
+                                    </small>
+
+                                    <!-- Slot 1: Whole House Exterior -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-house-chimney text-success me-1"></i> 1. Whole House View (Exterior)
+                                        </label>
+                                        <input type="file" id="editPhotoHouse" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewEditHouse')">
+                                        <img id="previewEditHouse" class="img-preview-box" alt="House View Preview">
+                                    </div>
+
+                                    <!-- Slot 2: Room Interior -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-bed text-success me-1"></i> 2. Room View (Interior)
+                                        </label>
+                                        <input type="file" id="editPhotoRoom" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewEditRoom')">
+                                        <img id="previewEditRoom" class="img-preview-box" alt="Room View Preview">
+                                    </div>
+
+                                    <!-- Slot 3: Extra View -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-mountain-sun text-success me-1"></i> 3. Extra View (Balcony / Valley / Kitchen)
+                                        </label>
+                                        <input type="file" id="editPhotoExtra1" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewEditExtra1')">
+                                        <img id="previewEditExtra1" class="img-preview-box" alt="Extra View 1 Preview">
+                                    </div>
+
+                                    <!-- Slot 4: Extra Photo 2 (Optional) -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-semibold mb-1 text-muted">
+                                            <i class="fa-regular fa-image text-secondary me-1"></i> 4. Extra View 2 (Optional)
+                                        </label>
+                                        <input type="file" id="editPhotoExtra2" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewEditExtra2')">
+                                        <img id="previewEditExtra2" class="img-preview-box" alt="Extra View 2 Preview">
+                                    </div>
+
+                                    <!-- Slot 5: Extra Photo 3 (Optional) -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-semibold mb-1 text-muted">
+                                            <i class="fa-regular fa-image text-secondary me-1"></i> 5. Extra View 3 (Optional)
+                                        </label>
+                                        <input type="file" id="editPhotoExtra3" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewEditExtra3')">
+                                        <img id="previewEditExtra3" class="img-preview-box" alt="Extra View 3 Preview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer border-0 px-0 pt-3 pb-0 mt-3 d-flex justify-content-end gap-2">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal" onclick="safeCloseModal('editPropertyModal')">Cancel</button>
+                            <button type="submit" id="editSubmitBtn" class="btn btn-brand rounded-pill px-4 fw-bold">
+                                <i class="fa-solid fa-check me-1"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 2: ADD NEW ANCESTRAL HOME (BECOME A HOST MODAL) -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="hostModal" tabindex="-1" aria-labelledby="hostModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header border-0 px-4 pt-4 pb-2">
+                    <div>
+                        <h5 class="fw-bold mb-1" id="hostModalLabel">
+                            <i class="fa-solid fa-house-chimney text-success me-2"></i>List an Ancestral Home
+                        </h5>
+                        <small class="text-muted">Revitalize your ancestral village and welcome conscious travelers.</small>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('hostModal')"></button>
+                </div>
+
+                <div class="modal-body px-4 py-2">
+                    <div id="hostAlert" class="alert alert-danger d-none rounded-3 py-2 small" role="alert"></div>
+
+                    <form id="hostForm" onsubmit="handleHostSubmission(event)">
+                        <div class="row g-3">
+                            <div class="col-md-7 col-12">
+                                <label class="form-label fw-semibold small">Property Title</label>
+                                <input type="text" id="hostTitle" class="form-control rounded-3" placeholder="e.g. Rawat Heritage Stone Cottage" required>
+                            </div>
+                            <div class="col-md-5 col-12">
+                                <label class="form-label fw-semibold small">Nightly Rate (₹ INR)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light fw-bold">₹</span>
+                                    <input type="number" id="hostPrice" class="form-control rounded-end-3" placeholder="e.g. 850" min="200" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-12">
+                                <label class="form-label fw-semibold small">Village / Ghost Village</label>
+                                <input type="text" id="hostVillage" class="form-control rounded-3" placeholder="e.g. Mana Village" required>
+                            </div>
+                            <div class="col-md-6 col-12">
+                                <label class="form-label fw-semibold small">District</label>
+                                <select id="hostDistrict" class="form-select rounded-3" required>
+                                    <option value="" disabled selected>Select District</option>
+                                    <option value="Tehri Garhwal">Tehri Garhwal</option>
+                                    <option value="Chamoli">Chamoli</option>
+                                    <option value="Rudraprayag">Rudraprayag</option>
+                                    <option value="Uttarkashi">Uttarkashi</option>
+                                    <option value="Pauri Garhwal">Pauri Garhwal</option>
+                                    <option value="Almora">Almora</option>
+                                    <option value="Pithoragarh">Pithoragarh</option>
+                                    <option value="Nainital">Nainital</option>
+                                    <option value="Bageshwar">Bageshwar</option>
+                                    <option value="Champawat">Champawat</option>
+                                    <option value="Dehradun">Dehradun</option>
+                                    <option value="Haridwar">Haridwar</option>
+                                    <option value="Udham Singh Nagar">Udham Singh Nagar</option>
+                                </select>
+                            </div>
+
+                            <!-- PHOTO UPLOADS: MIN 3, MAX 5 -->
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small d-flex justify-content-between align-items-center mb-1">
+                                    <span><i class="fa-solid fa-camera-retro text-success me-1"></i> Ancestral Home Photos</span>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle">Min 3 • Max 5 Photos</span>
+                                </label>
+                                <div class="p-2 border rounded-3 bg-light mb-2 small text-muted">
+                                    <strong>Photo Rules:</strong> Minimum 3 photos are required to verify your ancestral home (Whole House, Room, & Extra View). Up to 5 photos allowed.
+                                </div>
+
+                                <!-- Slot 1: Whole House Exterior -->
+                                <div class="mb-2 p-2 border rounded-3 bg-white">
+                                    <label class="form-label small fw-bold mb-1 text-dark">
+                                        <i class="fa-solid fa-house-chimney text-success me-1"></i> 1. Whole House View (Exterior) <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" id="hostPhotoHouse" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHostHouse')" required>
+                                    <img id="previewHostHouse" class="img-preview-box" alt="House View Preview">
+                                </div>
+
+                                <!-- Slot 2: Room Interior -->
+                                <div class="mb-2 p-2 border rounded-3 bg-white">
+                                    <label class="form-label small fw-bold mb-1 text-dark">
+                                        <i class="fa-solid fa-bed text-success me-1"></i> 2. Room View (Interior) <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" id="hostPhotoRoom" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHostRoom')" required>
+                                    <img id="previewHostRoom" class="img-preview-box" alt="Room View Preview">
+                                </div>
+
+                                <!-- Slot 3: Extra View -->
+                                <div class="mb-2 p-2 border rounded-3 bg-white">
+                                    <label class="form-label small fw-bold mb-1 text-dark">
+                                        <i class="fa-solid fa-mountain-sun text-success me-1"></i> 3. Extra View (Balcony / Valley / Kitchen) <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="file" id="hostPhotoExtra1" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHostExtra1')" required>
+                                    <img id="previewHostExtra1" class="img-preview-box" alt="Extra View 1 Preview">
+                                </div>
+
+                                <!-- Slot 4: Extra Photo 2 (Optional) -->
+                                <div class="mb-2 p-2 border rounded-3 bg-white">
+                                    <label class="form-label small fw-semibold mb-1 text-muted">
+                                        <i class="fa-regular fa-image text-secondary me-1"></i> 4. Extra View 2 <span class="badge bg-light text-secondary border">Optional</span>
+                                    </label>
+                                    <input type="file" id="hostPhotoExtra2" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHostExtra2')">
+                                    <img id="previewHostExtra2" class="img-preview-box" alt="Extra View 2 Preview">
+                                </div>
+
+                                <!-- Slot 5: Extra Photo 3 (Optional) -->
+                                <div class="mb-2 p-2 border rounded-3 bg-white">
+                                    <label class="form-label small fw-semibold mb-1 text-muted">
+                                        <i class="fa-regular fa-image text-secondary me-1"></i> 5. Extra View 3 <span class="badge bg-light text-secondary border">Optional</span>
+                                    </label>
+                                    <input type="file" id="hostPhotoExtra3" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHostExtra3')">
+                                    <img id="previewHostExtra3" class="img-preview-box" alt="Extra View 3 Preview">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer border-0 px-0 pt-3 pb-0 mt-3 d-flex justify-content-end gap-2">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal" onclick="safeCloseModal('hostModal')">Cancel</button>
+                            <button type="submit" id="hostSubmitBtn" class="btn btn-brand rounded-pill px-4 fw-bold">
+                                <i class="fa-solid fa-cloud-arrow-up me-1"></i> Publish Listing Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div class="toast-container">
+        <div id="liveToast" class="toast align-items-center text-bg-dark border-0 shadow rounded-4" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body py-3 px-4 fw-semibold" id="toastMessage">
+                    Action completed successfully.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-3 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 3: CANCEL STAY RESERVATION & REFUND BREAKDOWN -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="cancelStayModal" tabindex="-1" aria-labelledby="cancelStayModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 bg-danger text-white py-3 px-4">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-calendar-xmark fs-4"></i>
+                        <div>
+                            <h5 class="fw-bold mb-0 text-white" id="cancelStayModalLabel">Cancel Reservation</h5>
+                            <small class="text-white-50">Instant refund estimation & policy confirmation</small>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('cancelStayModal')"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <div id="cancelAlert" class="alert alert-danger d-none rounded-3 py-2 small" role="alert"></div>
+
+                    <input type="hidden" id="cancelBookingId">
+
+                    <!-- Stay Summary Box -->
+                    <div class="p-3 bg-light rounded-3 border mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="badge bg-secondary-subtle text-secondary small fw-bold" id="cancelBookingRef">#RH-BK-0</span>
+                            <span class="text-muted small" id="cancelDaysNotice">Calculating timing...</span>
+                        </div>
+                        <h6 class="fw-bold mb-1 text-dark" id="cancelStayTitle">Homestay Title</h6>
+                        <small class="text-muted d-block mb-2" id="cancelStayLocation"><i class="fa-solid fa-location-dot text-danger me-1"></i> Village, District</small>
+                        <div class="small text-muted d-flex justify-content-between pt-1 border-top">
+                            <span><i class="fa-regular fa-calendar me-1"></i> <strong>Stay Dates:</strong> <span id="cancelStayDates">Dates</span></span>
+                            <span><strong id="cancelStayGuests">1 Guest</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- REFUND POLICY & CALCULATION BREAKDOWN -->
+                    <div id="cancelPolicyBox" class="p-3 rounded-3 border mb-3">
+                        <!-- Injected dynamically based on early vs 1-day prior cancellation -->
+                    </div>
+
+                    <!-- REFUND DETAILS BREAKDOWN TABLE -->
+                    <div class="border rounded-3 p-3 bg-white mb-3 shadow-sm">
+                        <div class="d-flex justify-content-between small text-muted mb-1">
+                            <span>Original Total Paid:</span>
+                            <strong class="text-dark" id="cancelOriginalTotal">₹0</strong>
+                        </div>
+                        <div class="d-flex justify-content-between small mb-1">
+                            <span class="text-danger"><i class="fa-solid fa-minus me-1"></i> Cancellation Deduction:</span>
+                            <strong class="text-danger" id="cancelDeductionAmount">- ₹0</strong>
+                        </div>
+                        <hr class="my-2">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong class="text-success fs-6"><i class="fa-solid fa-arrow-rotate-left me-1"></i> Estimated Refund:</strong>
+                            <strong class="text-success fs-5" id="cancelRefundAmount">₹0</strong>
+                        </div>
+                    </div>
+
+                    <!-- Cancellation Reason -->
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold text-dark mb-1">Reason for Cancellation (Optional)</label>
+                        <select id="cancelReasonSelect" class="form-select form-select-sm rounded-3 mb-2" onchange="toggleCustomReason(this.value)">
+                            <option value="Change of travel plans">Change of travel plans</option>
+                            <option value="Adverse mountain weather / road condition">Adverse mountain weather / road condition</option>
+                            <option value="Personal or family emergency">Personal or family emergency</option>
+                            <option value="Found alternative stay">Found alternative stay</option>
+                            <option value="Other">Other reason...</option>
+                        </select>
+                        <input type="text" id="cancelReasonCustom" class="form-control form-control-sm rounded-3 d-none" placeholder="Please specify your reason...">
+                    </div>
+
+                    <!-- Direct Refund Note -->
+                    <div class="p-2 bg-light rounded-3 text-muted small text-center" style="font-size:0.75rem;">
+                        <i class="fa-solid fa-shield-halved text-success me-1"></i>
+                        Refund will be credited back directly to your original payment method within 2-3 business days.
+                    </div>
+                </div>
+
+                <div class="modal-footer border-0 px-4 pb-4 pt-0 d-flex justify-content-between gap-2">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal" onclick="safeCloseModal('cancelStayModal')">Keep Reservation</button>
+                    <button type="button" id="confirmCancelBtn" class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm" onclick="submitBookingCancellation()">
+                        <i class="fa-solid fa-ban me-1"></i> Confirm Cancellation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="container text-center py-4 mt-auto">
+        <small class="text-muted">Reawakened Hills &copy; 2026 | Revitalizing Ghost Villages in Uttarakhand</small>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let currentUser = null;
+        let cachedProperties = [];
+        let cachedUserBookings = [];
+        let currentCancelBooking = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initProfile();
+        });
+
+        function initProfile() {
+            const notLoggedIn = document.getElementById('notLoggedInAlert');
+            const profileBox = document.getElementById('profileContainer');
+
+            try {
+                const stored = localStorage.getItem('reawakened_user');
+                if (!stored) {
+                    notLoggedIn.classList.remove('d-none');
+                    profileBox.classList.add('d-none');
+                    return;
+                }
+
+                currentUser = JSON.parse(stored);
+                notLoggedIn.classList.add('d-none');
+                profileBox.classList.remove('d-none');
+
+                document.getElementById('userName').textContent = currentUser.name || 'Himalayan Explorer';
+                document.getElementById('userEmail').textContent = currentUser.email || 'No email registered';
+                document.getElementById('userPhone').textContent = currentUser.phone || '+91 Not Provided';
+                
+                const roleFormatted = (currentUser.role === 'host') ? 'Village Host' : (currentUser.role === 'tourist' ? 'Tourist / Pilgrim' : 'Host & Traveler');
+                document.getElementById('userRole').textContent = roleFormatted;
+
+                // Load User's listings and bookings
+                refreshDashboardData();
+
+            } catch (err) {
+                console.error('Profile initialization error:', err);
+                notLoggedIn.classList.remove('d-none');
+                profileBox.classList.add('d-none');
+            }
+        }
+
+        async function refreshDashboardData() {
+            if (!currentUser) return;
+            await Promise.all([
+                loadUserProperties(),
+                loadHostBookings(),
+                loadUserBookings()
+            ]);
+        }
+
+        // ==========================================
+        // 1. FETCH & RENDER USER'S PROPERTIES
+        // ==========================================
+        async function loadUserProperties() {
+            const container = document.getElementById('myListingsContainer');
+            const badgeCount = document.getElementById('badgeListingsCount');
+            const statCount = document.getElementById('statListingsCount');
+
+            try {
+                const res = await fetch(`/api/properties?host_id=${currentUser.id}`);
+                if (!res.ok) throw new Error('Failed to load your properties.');
+
+                const properties = await res.json();
+                cachedProperties = properties;
+
+                badgeCount.textContent = properties.length;
+                statCount.textContent = `${properties.length} Stay${properties.length === 1 ? '' : 's'}`;
+
+                if (properties.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-12">
+                            <div class="card border-0 rounded-4 p-5 text-center bg-light">
+                                <div class="text-success fs-1 mb-2"><i class="fa-solid fa-house-chimney-window"></i></div>
+                                <h5 class="fw-bold mb-1">No Ancestral Homes Listed Yet</h5>
+                                <p class="text-muted small mb-4">Turn your vacant mountain property into an authentic rural homestay. Preserve Pahadi culture and earn sustainable income.</p>
+                                <div>
+                                    <button class="btn btn-brand rounded-pill px-4 fw-bold" onclick="openHostModal()">
+                                        <i class="fa-solid fa-plus me-1"></i> List Your First Ancestral Home
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = properties.map(p => {
+                    const primaryImg = p.image_url || 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80';
+                    const formattedPrice = Number(p.price_per_night).toLocaleString('en-IN');
+                    
+                    let photoCount = 1;
+                    if (p.images) {
+                        try {
+                            const parsed = typeof p.images === 'string' ? JSON.parse(p.images) : p.images;
+                            if (Array.isArray(parsed)) photoCount = parsed.length;
+                        } catch(e) {}
+                    }
+
+                    return `
+                        <div class="col-lg-6 col-12" id="listing-card-${p.id}">
+                            <div class="listing-manage-card h-100 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="listing-thumb-wrapper">
+                                        <img src="${primaryImg}" class="listing-thumb" alt="${escapeHtml(p.title)}" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'">
+                                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill small" style="font-size:0.75rem;">
+                                            <i class="fa-solid fa-camera me-1"></i> ${photoCount} Photos
+                                        </span>
+                                        ${p.is_verified ? '<span class="badge bg-success position-absolute top-0 end-0 m-2 px-2 py-1 rounded-pill small"><i class="fa-solid fa-circle-check me-1"></i> Verified</span>' : ''}
+                                    </div>
+
+                                    <div class="p-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <small class="text-muted fw-bold">
+                                                <i class="fa-solid fa-location-dot text-danger me-1"></i> ${escapeHtml(p.village)}, ${escapeHtml(p.district)}
+                                            </small>
+                                            <span class="fw-bold text-success">₹${formattedPrice} <small class="text-muted fw-normal">/ night</small></span>
+                                        </div>
+                                        <h5 class="fw-bold mb-2 text-dark">${escapeHtml(p.title)}</h5>
+                                        <p class="text-muted small mb-2 text-truncate-2" style="font-size: 0.85rem;">
+                                            ${escapeHtml(p.description || 'Authentic restored ancestral mountain homestay in Uttarakhand.')}
+                                        </p>
+                                        <div class="small text-muted mb-2">
+                                            <i class="fa-solid fa-bell-concierge text-secondary me-1"></i> <strong>Amenities:</strong> ${escapeHtml(p.amenities || 'Traditional Pahadi Meals, Wood Hearth')}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 pt-0 border-top mt-2 d-flex justify-content-between align-items-center gap-2">
+                                    <a href="index.html#prop-${p.id}" target="_blank" class="btn btn-outline-secondary rounded-pill btn-sm px-3">
+                                        <i class="fa-solid fa-eye me-1"></i> View Live
+                                    </a>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-success rounded-pill btn-sm px-3 fw-bold" onclick="openEditModal(${p.id})">
+                                            <i class="fa-solid fa-pen-to-square me-1"></i> Modify
+                                        </button>
+                                        <button class="btn btn-outline-danger rounded-pill btn-sm px-3 fw-semibold" onclick="confirmDeleteProperty(${p.id})">
+                                            <i class="fa-solid fa-trash me-1"></i> Delist
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error('Error loading properties:', err);
+                container.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-danger rounded-3 small">
+                            <i class="fa-solid fa-triangle-exclamation me-1"></i> Could not load your properties: ${err.message}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // 2. FETCH & RENDER USER'S BOOKINGS
+        // ==========================================
+        async function loadUserBookings() {
+            const container = document.getElementById('myBookingsContainer');
+            const badgeCount = document.getElementById('badgeBookingsCount');
+
+            try {
+                const queryParam = currentUser.email ? `email=${encodeURIComponent(currentUser.email)}` : `phone=${encodeURIComponent(currentUser.phone || '')}`;
+                const res = await fetch(`/api/bookings?${queryParam}`);
+                if (!res.ok) throw new Error('Failed to load your reservations.');
+
+                const bookings = await res.json();
+                cachedUserBookings = bookings;
+                badgeCount.textContent = bookings.length;
+
+                if (bookings.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-12">
+                            <div class="card border-0 rounded-4 p-5 text-center bg-light">
+                                <div class="text-secondary fs-1 mb-2"><i class="fa-solid fa-calendar-xmark"></i></div>
+                                <h5 class="fw-bold mb-1">No Reservations Found</h5>
+                                <p class="text-muted small mb-4">You have not booked any village stays yet. Discover tranquil homestays across 13 Uttarakhand districts.</p>
+                                <div>
+                                    <a href="index.html#explore" class="btn btn-outline-success rounded-pill px-4 fw-bold">
+                                        <i class="fa-solid fa-magnifying-glass me-1"></i> Explore Village Stays
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = bookings.map(b => {
+                    const isCancelled = b.status === 'cancelled';
+                    const checkIn = new Date(b.check_in).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                    const checkOut = new Date(b.check_out).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                    const guests = b.guests_count || 1;
+                    const totalAmt = b.total_amount ? Number(b.total_amount).toLocaleString('en-IN') : Number(b.price_per_night || 850).toLocaleString('en-IN');
+                    const method = b.payment_method || 'UPI';
+                    const txnId = b.transaction_id || `TXN_RH_${b.id}`;
+
+                    return `
+                        <div class="col-md-6 col-12">
+                            <div class="card border rounded-4 p-3 bg-white h-100 shadow-sm d-flex flex-column justify-content-between position-relative">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        ${isCancelled ? `
+                                            <span class="badge bg-danger bg-opacity-10 text-danger border border-danger fw-bold px-3 py-1 rounded-pill small">
+                                                <i class="fa-solid fa-ban me-1"></i> CANCELLED & REFUNDED
+                                            </span>
+                                        ` : `
+                                            <span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill small border border-success">
+                                                <i class="fa-solid fa-circle-check me-1"></i> PAID & CONFIRMED
+                                            </span>
+                                        `}
+                                        <small class="text-muted fw-bold">#RH-BK-${b.id}</small>
+                                    </div>
+
+                                    <h5 class="fw-bold mb-1 text-dark">${escapeHtml(b.property_title || 'Himalayan Homestay')}</h5>
+                                    <p class="text-muted small mb-2"><i class="fa-solid fa-location-dot text-danger me-1"></i> ${escapeHtml(b.village || 'Uttarakhand')}, ${escapeHtml(b.district || '')}</p>
+                                    
+                                    <div class="p-3 bg-light rounded-3 small mb-2">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span><strong>Dates:</strong> ${checkIn} ➔ ${checkOut}</span>
+                                            <span class="badge bg-secondary-subtle text-secondary">${guests} Guest${guests > 1 ? 's' : ''}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span><strong>Payment Method:</strong> ${method}</span>
+                                            <span class="text-success fw-bold">₹${totalAmt}</span>
+                                        </div>
+                                        <div class="text-muted" style="font-size:0.75rem;">
+                                            <strong>Txn ID:</strong> <code>${txnId}</code>
+                                        </div>
+                                    </div>
+
+                                    ${isCancelled ? `
+                                        <div class="p-2 bg-light border border-danger-subtle rounded-3 small mb-3 text-dark">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <strong class="text-danger"><i class="fa-solid fa-clock-rotate-left me-1"></i> Refund Status:</strong>
+                                                <span class="text-muted" style="font-size:0.75rem;">${b.cancelled_at ? new Date(b.cancelled_at).toLocaleDateString('en-IN', {day:'numeric',month:'short'}) : ''}</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <span>Refund Credited:</span>
+                                                <strong class="text-success fs-6">₹${Number(b.refund_amount || 0).toLocaleString('en-IN')}</strong>
+                                            </div>
+                                            ${Number(b.deduction_amount) > 0 ? `
+                                                <div class="d-flex justify-content-between text-danger small mb-1">
+                                                    <span>50% Deduction (1 day prior cancellation):</span>
+                                                    <strong>- ₹${Number(b.deduction_amount).toLocaleString('en-IN')}</strong>
+                                                </div>
+                                            ` : `
+                                                <div class="text-success small"><i class="fa-solid fa-circle-check me-1"></i> 100% Full Refund Issued (Early Cancellation)</div>
+                                            `}
+                                            ${b.cancellation_reason ? `<div class="text-muted mt-1" style="font-size:0.75rem;">Reason: <em>${escapeHtml(b.cancellation_reason)}</em></div>` : ''}
+                                        </div>
+                                    ` : `
+                                        <div class="p-2 bg-light rounded-3 text-muted small mb-3" style="font-size:0.74rem;">
+                                            <i class="fa-solid fa-shield-halved text-success me-1"></i> <strong>Cancellation Policy:</strong> 100% full refund if cancelled early (>1 day prior) • 50% deduction if cancelled 1 day before stay.
+                                        </div>
+                                    `}
+                                </div>
+                                
+                                <div class="pt-2 border-top d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                    ${isCancelled ? `
+                                        <span class="badge bg-secondary-subtle text-secondary rounded-pill px-3 py-2 small">
+                                            <i class="fa-solid fa-circle-xmark me-1"></i> Trip Cancelled
+                                        </span>
+                                    ` : `
+                                        <button class="btn btn-outline-danger btn-sm rounded-pill px-3 fw-bold" onclick="openCancellationModal(${b.id})">
+                                            <i class="fa-solid fa-calendar-xmark me-1"></i> Cancel Stay
+                                        </button>
+                                    `}
+                                    <div class="d-flex gap-2">
+                                        <small class="text-muted align-self-center">
+                                            <strong>Host:</strong> ${escapeHtml(b.host_name || 'Local Host')}
+                                        </small>
+                                        ${b.host_phone ? `
+                                            <a href="https://wa.me/${b.host_phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-bold">
+                                                <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp
+                                            </a>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error('Error loading bookings:', err);
+                container.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-danger rounded-3 small">
+                            <i class="fa-solid fa-triangle-exclamation me-1"></i> Could not load bookings: ${err.message}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // 2B. FETCH & RENDER HOST'S RECEIVED BOOKINGS (GUEST NOTIFICATIONS)
+        // ==========================================
+        async function loadHostBookings() {
+            const container = document.getElementById('hostBookingsContainer');
+            const badgeCount = document.getElementById('badgeHostBookingsCount');
+            const alertBanner = document.getElementById('hostNewBookingsAlert');
+            const revenueBadge = document.getElementById('hostRevenueBadge');
+
+            if (!container) return;
+
+            try {
+                const res = await fetch(`/api/bookings?host_id=${currentUser.id}`);
+                if (!res.ok) throw new Error('Failed to load guest bookings.');
+
+                const bookings = await res.json();
+                
+                // Count active bookings for badge
+                const activeBookings = bookings.filter(b => b.status !== 'cancelled');
+                if (badgeCount) badgeCount.textContent = activeBookings.length;
+
+                // Compute total host earnings (including retained 50% deductions from late cancellations)
+                const totalEarnings = bookings.reduce((sum, b) => b.status === 'cancelled' ? sum + (Number(b.deduction_amount) || 0) : sum + (Number(b.total_amount) || Number(b.price_per_night) || 0), 0);
+                if (revenueBadge) {
+                    revenueBadge.innerHTML = `<i class="fa-solid fa-sack-dollar me-1"></i> Total Earnings: ₹${totalEarnings.toLocaleString('en-IN')}`;
+                }
+
+                // Populate Top Notification Alert Banner
+                if (alertBanner) {
+                    if (activeBookings.length > 0) {
+                        const latest = activeBookings[0]; // Most recent active booking
+                        const checkInStr = new Date(latest.check_in).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                        const checkOutStr = new Date(latest.check_out).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                        const latestAmt = Number(latest.total_amount || latest.price_per_night || 0).toLocaleString('en-IN');
+                        const latestGuests = latest.guests_count || 1;
+
+                        alertBanner.classList.remove('d-none');
+                        alertBanner.innerHTML = `
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center shadow-sm flex-shrink-0" style="width: 44px; height: 44px; font-size: 1.25rem;">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                                            <strong class="text-success-emphasis fs-6">🎉 Booking Notification: You have ${activeBookings.length} confirmed stay booking${activeBookings.length > 1 ? 's' : ''}!</strong>
+                                            <span class="badge bg-danger text-white rounded-pill px-2 py-1 small">New Guest Confirmed</span>
+                                        </div>
+                                        <div class="small text-muted mt-1">
+                                            Guest: <strong class="text-dark">${escapeHtml(latest.guest_name || 'Traveler')}</strong> booked 
+                                            <span class="text-success fw-bold">${escapeHtml(latest.property_title || 'Your Ancestral Home')}</span> 
+                                            (${checkInStr} ➔ ${checkOutStr} · ${latestGuests} Guest${latestGuests > 1 ? 's' : ''} · ₹${latestAmt} paid via ${escapeHtml(latest.payment_method || 'UPI')})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button class="btn btn-sm btn-success rounded-pill px-3 fw-bold shadow-sm" onclick="switchDashboardTab('host-bookings')">
+                                        <i class="fa-solid fa-users me-1"></i> View All Guest Bookings (${activeBookings.length})
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        alertBanner.classList.add('d-none');
+                    }
+                }
+
+                // Render Host Bookings Cards
+                if (bookings.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-12">
+                            <div class="card border-0 rounded-4 p-5 text-center bg-light">
+                                <div class="text-secondary fs-1 mb-2"><i class="fa-solid fa-calendar-check"></i></div>
+                                <h5 class="fw-bold mb-1">No Guest Bookings Yet</h5>
+                                <p class="text-muted small mb-0">When travelers and pilgrims confirm a stay at your listed ancestral homes, their reservation details, guest names, and contact numbers will appear here immediately.</p>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+
+                container.innerHTML = bookings.map(b => {
+                    const isCancelled = b.status === 'cancelled';
+                    const checkIn = new Date(b.check_in).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                    const checkOut = new Date(b.check_out).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+                    const guests = b.guests_count || 1;
+                    const totalAmt = b.total_amount ? Number(b.total_amount).toLocaleString('en-IN') : Number(b.price_per_night || 850).toLocaleString('en-IN');
+                    const method = b.payment_method || 'UPI';
+                    const txnId = b.transaction_id || `TXN_RH_${b.id}`;
+                    const bookedDate = b.created_at ? new Date(b.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : checkIn;
+                    
+                    // Clean phone for WhatsApp / Tel
+                    const cleanPhone = (b.guest_phone || '').replace(/[^0-9]/g, '');
+                    const waPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+                    const waMessage = encodeURIComponent(`Namaste ${b.guest_name}! We are delighted to confirm your upcoming stay at "${b.property_title}" (${b.village}, ${b.district}) from ${checkIn} to ${checkOut}. Please let us know if you need any directions or traditional Pahadi meal arrangements!`);
+
+                    return `
+                        <div class="col-lg-6 col-12">
+                            <div class="card border rounded-4 p-3 bg-white h-100 shadow-sm d-flex flex-column justify-content-between position-relative">
+                                <div>
+                                    <!-- Header Badge and Reference -->
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        ${isCancelled ? `
+                                            <span class="badge bg-danger bg-opacity-10 text-danger fw-bold px-3 py-1 rounded-pill small border border-danger">
+                                                <i class="fa-solid fa-ban me-1"></i> CANCELLED BY GUEST
+                                            </span>
+                                        ` : `
+                                            <span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-1 rounded-pill small border border-success">
+                                                <i class="fa-solid fa-circle-check me-1"></i> CONFIRMED & PAID
+                                            </span>
+                                        `}
+                                        <small class="text-muted fw-bold">Booking ID: #RH-BK-${b.id}</small>
+                                    </div>
+
+                                    <!-- Guest Details Highlight Box (Prominent) -->
+                                    <div class="p-3 bg-light rounded-3 border mb-3">
+                                        <div class="d-flex align-items-center gap-3 mb-2">
+                                            <div class="rounded-circle ${isCancelled ? 'bg-secondary' : 'bg-success'} text-white d-flex align-items-center justify-content-center shadow-sm flex-shrink-0" style="width: 44px; height: 44px; font-size: 1.15rem;">
+                                                <i class="fa-solid ${isCancelled ? 'fa-user-xmark' : 'fa-user-check'}"></i>
+                                            </div>
+                                            <div>
+                                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                    <h5 class="fw-bold mb-0 text-dark">${escapeHtml(b.guest_name || 'Verified Traveler')}</h5>
+                                                    <span class="badge ${isCancelled ? 'bg-secondary' : 'bg-primary'} bg-opacity-10 text-dark rounded-pill small" style="font-size:0.7rem;">
+                                                        <i class="fa-solid fa-suitcase me-1"></i> Guest / Pilgrim
+                                                    </span>
+                                                </div>
+                                                <small class="text-muted">Booked on ${bookedDate}</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="row g-2 pt-2 border-top small">
+                                            <div class="col-sm-6 col-12">
+                                                <div class="text-muted">Phone / WhatsApp:</div>
+                                                <strong class="text-dark d-flex align-items-center gap-1">
+                                                    <i class="fa-solid fa-phone text-success"></i> ${escapeHtml(b.guest_phone || 'Not provided')}
+                                                </strong>
+                                            </div>
+                                            <div class="col-sm-6 col-12">
+                                                <div class="text-muted">Email:</div>
+                                                <strong class="text-dark d-flex align-items-center gap-1 text-truncate" title="${escapeHtml(b.guest_email || '')}">
+                                                    <i class="fa-solid fa-envelope text-success"></i> ${escapeHtml(b.guest_email || 'Not provided')}
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    ${isCancelled ? `
+                                        <div class="p-2 bg-danger bg-opacity-10 border border-danger-subtle rounded-3 small mb-3 text-dark">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <strong class="text-danger"><i class="fa-solid fa-calendar-xmark me-1"></i> Cancellation Details:</strong>
+                                                <span class="text-muted" style="font-size:0.75rem;">${b.cancelled_at ? new Date(b.cancelled_at).toLocaleDateString('en-IN', {day:'numeric',month:'short'}) : ''}</span>
+                                            </div>
+                                            <div class="small">
+                                                ${Number(b.deduction_amount) > 0 ? `
+                                                    <strong>₹${Number(b.deduction_amount).toLocaleString('en-IN')}</strong> retained by host (50% deduction applied for 1-day cancellation). Guest refunded ₹${Number(b.refund_amount).toLocaleString('en-IN')}.
+                                                ` : `
+                                                    Full refund of ₹${Number(b.refund_amount).toLocaleString('en-IN')} issued to guest (early cancellation). Your room is now open for new travelers.
+                                                `}
+                                            </div>
+                                            ${b.cancellation_reason ? `<div class="text-muted mt-1" style="font-size:0.75rem;">Reason: <em>${escapeHtml(b.cancellation_reason)}</em></div>` : ''}
+                                        </div>
+                                    ` : ''}
+
+                                    <!-- Property Details -->
+                                    <div class="mb-2">
+                                        <div class="text-muted small fw-bold text-uppercase" style="font-size: 0.72rem; letter-spacing: 0.5px;">Booked Ancestral Home</div>
+                                        <h6 class="fw-bold mb-1 text-dark">${escapeHtml(b.property_title || 'Heritage Homestay')}</h6>
+                                        <small class="text-muted"><i class="fa-solid fa-location-dot text-danger me-1"></i> ${escapeHtml(b.village || 'Uttarakhand')}, ${escapeHtml(b.district || '')}</small>
+                                    </div>
+
+                                    <!-- Reservation Summary Pills -->
+                                    <div class="p-2 px-3 bg-light rounded-3 small mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span><i class="fa-regular fa-calendar text-muted me-1"></i> <strong>Stay Dates:</strong></span>
+                                            <span class="fw-semibold text-dark">${checkIn} ➔ ${checkOut}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span><i class="fa-solid fa-users text-muted me-1"></i> <strong>Check-in Party:</strong></span>
+                                            <span class="badge bg-secondary-subtle text-secondary">${guests} Guest${guests > 1 ? 's' : ''}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <span><i class="fa-solid fa-credit-card text-muted me-1"></i> <strong>Payment Method:</strong></span>
+                                            <span class="badge bg-light text-dark border">${escapeHtml(method)}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center pt-1 border-top mt-1">
+                                            <span><strong>${isCancelled ? 'Host Compensation Earned:' : 'Total Amount Earned:'}</strong></span>
+                                            <span class="text-success fw-bold fs-6">₹${isCancelled ? Number(b.deduction_amount || 0).toLocaleString('en-IN') : totalAmt}</span>
+                                        </div>
+                                        <div class="text-muted mt-1" style="font-size: 0.7rem;">
+                                            Ref Txn ID: <code>${escapeHtml(txnId)}</code>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons: WhatsApp Guest & Call -->
+                                <div class="pt-2 border-top d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                    <span class="small text-muted">
+                                        <i class="fa-solid fa-comment-dots text-secondary me-1"></i> Contact Guest:
+                                    </span>
+                                    <div class="d-flex gap-2">
+                                        ${b.guest_phone ? `
+                                            <a href="https://wa.me/${waPhone}?text=${waMessage}" target="_blank" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-bold">
+                                                <i class="fa-brands fa-whatsapp me-1"></i> WhatsApp Guest
+                                            </a>
+                                            <a href="tel:${b.guest_phone}" class="btn btn-outline-primary btn-sm rounded-pill px-3 fw-semibold">
+                                                <i class="fa-solid fa-phone me-1"></i> Call
+                                            </a>
+                                        ` : `
+                                            <a href="mailto:${b.guest_email}" class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-semibold">
+                                                <i class="fa-solid fa-envelope me-1"></i> Email
+                                            </a>
+                                        `}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+            } catch (err) {
+                console.error('Error loading host bookings:', err);
+                container.innerHTML = `
+                    <div class="col-12">
+                        <div class="alert alert-danger rounded-3 small">
+                            <i class="fa-solid fa-triangle-exclamation me-1"></i> Could not load guest bookings: ${err.message}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ==========================================
+        // 2C. CANCELLATION MODAL CONTROLLERS & SUBMISSION
+        // ==========================================
+        function openCancellationModal(bookingId) {
+            const booking = cachedUserBookings.find(b => b.id == bookingId);
+            if (!booking) {
+                showToast('Reservation not found.');
+                return;
+            }
+            currentCancelBooking = booking;
+
+            const alertBox = document.getElementById('cancelAlert');
+            if (alertBox) alertBox.classList.add('d-none');
+
+            document.getElementById('cancelBookingId').value = booking.id;
+            document.getElementById('cancelBookingRef').textContent = `#RH-BK-${booking.id}`;
+            document.getElementById('cancelStayTitle').textContent = booking.property_title || 'Homestay';
+            document.getElementById('cancelStayLocation').innerHTML = `<i class="fa-solid fa-location-dot text-danger me-1"></i> ${escapeHtml(booking.village || 'Uttarakhand')}, ${escapeHtml(booking.district || '')}`;
+            
+            const checkInDate = new Date(booking.check_in);
+            const checkOutDate = new Date(booking.check_out);
+            const checkInStr = checkInDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            const checkOutStr = checkOutDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            document.getElementById('cancelStayDates').textContent = `${checkInStr} ➔ ${checkOutStr}`;
+            document.getElementById('cancelStayGuests').textContent = `${booking.guests_count || 1} Guest${(booking.guests_count || 1) > 1 ? 's' : ''}`;
+
+            const total = parseFloat(booking.total_amount) || parseFloat(booking.price_per_night) || 0.00;
+            document.getElementById('cancelOriginalTotal').textContent = `₹${total.toLocaleString('en-IN')}`;
+
+            // Timing calculation: Early cancellation vs 1-day prior
+            const checkInMidnight = new Date(checkInDate.getFullYear(), checkInDate.getMonth(), checkInDate.getDate());
+            const now = new Date();
+            const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const diffDays = Math.round((checkInMidnight - todayMidnight) / (24 * 60 * 60 * 1000));
+
+            const policyBox = document.getElementById('cancelPolicyBox');
+            const noticeEl = document.getElementById('cancelDaysNotice');
+            const deductionEl = document.getElementById('cancelDeductionAmount');
+            const refundEl = document.getElementById('cancelRefundAmount');
+            const confirmBtn = document.getElementById('confirmCancelBtn');
+
+            if (diffDays >= 2) {
+                // Early cancellation
+                if (noticeEl) noticeEl.innerHTML = `<span class="badge bg-success-subtle text-success border border-success-subtle">${diffDays} days before check-in</span>`;
+                if (policyBox) {
+                    policyBox.className = 'p-3 rounded-3 border mb-3 bg-success bg-opacity-10 border-success text-success-emphasis';
+                    policyBox.innerHTML = `
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                            <strong class="fs-6">Eligible for 100% Full Refund!</strong>
+                        </div>
+                        <div class="small">
+                            Since you are canceling <strong>${diffDays} days before stay</strong> (early cancellation), you will receive a <strong>full refund</strong> with <strong>₹0 deduction</strong>.
+                        </div>
+                    `;
+                }
+                if (deductionEl) deductionEl.textContent = '- ₹0 (0%)';
+                if (refundEl) refundEl.textContent = `₹${total.toLocaleString('en-IN')} (100%)`;
+                if (confirmBtn) {
+                    confirmBtn.disabled = false;
+                    confirmBtn.innerHTML = `<i class="fa-solid fa-arrow-rotate-left me-1"></i> Cancel & Refund Full ₹${total.toLocaleString('en-IN')}`;
+                }
+            } else if (diffDays >= 0) {
+                // 1 day before stay (or same day prior to check-in)
+                const half = Math.round((total * 0.5) * 100) / 100;
+                if (noticeEl) noticeEl.innerHTML = `<span class="badge bg-warning-subtle text-dark border border-warning">${diffDays === 1 ? '1 day before check-in' : 'Today (Day of check-in)'}</span>`;
+                if (policyBox) {
+                    policyBox.className = 'p-3 rounded-3 border mb-3 bg-warning bg-opacity-10 border-warning text-dark';
+                    policyBox.innerHTML = `
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <i class="fa-solid fa-triangle-exclamation text-warning fs-5"></i>
+                            <strong class="fs-6">50% Deduction Policy Applies</strong>
+                        </div>
+                        <div class="small">
+                            Canceling <strong>${diffDays === 1 ? '1 day before the stay' : 'on the scheduled check-in day'}</strong> incurs a 50% deduction to compensate the native village host. <strong>Half the amount (₹${half.toLocaleString('en-IN')}) will be refunded</strong> to your original payment method.
+                        </div>
+                    `;
+                }
+                if (deductionEl) deductionEl.textContent = `- ₹${half.toLocaleString('en-IN')} (50%)`;
+                if (refundEl) refundEl.textContent = `₹${half.toLocaleString('en-IN')} (50%)`;
+                if (confirmBtn) {
+                    confirmBtn.disabled = false;
+                    confirmBtn.innerHTML = `<i class="fa-solid fa-ban me-1"></i> Cancel & Refund ₹${half.toLocaleString('en-IN')}`;
+                }
+            } else {
+                // Past check-in
+                if (noticeEl) noticeEl.innerHTML = `<span class="badge bg-danger-subtle text-danger border border-danger">Check-in date passed</span>`;
+                if (policyBox) {
+                    policyBox.className = 'p-3 rounded-3 border mb-3 bg-danger bg-opacity-10 border-danger text-danger';
+                    policyBox.innerHTML = `
+                        <div class="d-flex align-items-center gap-2 mb-1">
+                            <i class="fa-solid fa-circle-xmark text-danger fs-5"></i>
+                            <strong class="fs-6">Non-Refundable</strong>
+                        </div>
+                        <div class="small">
+                            This reservation has passed the scheduled check-in date. No refund can be issued.
+                        </div>
+                    `;
+                }
+                if (deductionEl) deductionEl.textContent = `- ₹${total.toLocaleString('en-IN')} (100%)`;
+                if (refundEl) refundEl.textContent = `₹0 (0%)`;
+                if (confirmBtn) {
+                    confirmBtn.disabled = true;
+                    confirmBtn.innerHTML = `<i class="fa-solid fa-ban me-1"></i> Cannot Cancel Past Date`;
+                }
+            }
+
+            safeOpenModal('cancelStayModal');
+        }
+
+        function toggleCustomReason(val) {
+            const custom = document.getElementById('cancelReasonCustom');
+            if (!custom) return;
+            if (val === 'Other') {
+                custom.classList.remove('d-none');
+                custom.focus();
+            } else {
+                custom.classList.add('d-none');
+            }
+        }
+
+        async function submitBookingCancellation() {
+            if (!currentCancelBooking) return;
+            const alertBox = document.getElementById('cancelAlert');
+            const confirmBtn = document.getElementById('confirmCancelBtn');
+            if (alertBox) alertBox.classList.add('d-none');
+
+            const selectEl = document.getElementById('cancelReasonSelect');
+            const customEl = document.getElementById('cancelReasonCustom');
+            let reason = selectEl ? selectEl.value : 'Change of travel plans';
+            if (reason === 'Other' && customEl && customEl.value.trim()) {
+                reason = customEl.value.trim();
+            }
+
+            if (confirmBtn) {
+                confirmBtn.disabled = true;
+                confirmBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span> Processing cancellation & refund...`;
+            }
+
+            try {
+                const res = await fetch(`/api/bookings/${currentCancelBooking.id}/cancel`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ reason })
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to cancel reservation.');
+                }
+
+                safeCloseModal('cancelStayModal');
+                showToast(`✅ ${data.message}`);
+                await refreshDashboardData();
+            } catch (err) {
+                console.error('Cancellation submission error:', err);
+                if (alertBox) {
+                    alertBox.textContent = err.message;
+                    alertBox.classList.remove('d-none');
+                }
+                if (confirmBtn) {
+                    confirmBtn.disabled = false;
+                    confirmBtn.innerHTML = `<i class="fa-solid fa-ban me-1"></i> Confirm Cancellation`;
+                }
+            }
+        }
+
+        // ==========================================
+        // 3. EDIT PROPERTY LOGIC
+        // ==========================================
+        function openEditModal(propId) {
+            const property = cachedProperties.find(p => p.id == propId);
+            if (!property) {
+                console.error('Property not found in cache for ID:', propId);
+                return;
+            }
+
+            document.getElementById('editPropId').value = property.id;
+            document.getElementById('editTitle').value = property.title || '';
+            document.getElementById('editPrice').value = Math.round(property.price_per_night) || '';
+            document.getElementById('editVillage').value = property.village || '';
+            document.getElementById('editDistrict').value = property.district || 'Tehri Garhwal';
+            document.getElementById('editDescription').value = property.description || '';
+            document.getElementById('editAmenities').value = property.amenities || '';
+            document.getElementById('editMapsUrl').value = property.maps_url || '';
+
+            // Render current photos
+            const gallery = document.getElementById('editCurrentPhotosGallery');
+            const countBadge = document.getElementById('editCurrentPhotoCount');
+            gallery.innerHTML = '';
+
+            let images = [];
+            if (property.images) {
+                try {
+                    images = typeof property.images === 'string' ? JSON.parse(property.images) : property.images;
+                } catch(e) {}
+            }
+            if (!Array.isArray(images) || images.length === 0) {
+                if (property.image_url) images = [property.image_url];
+            }
+
+            countBadge.textContent = `${images.length} Verified Photos`;
+            images.forEach((imgUrl, idx) => {
+                const img = document.createElement('img');
+                img.src = imgUrl;
+                img.alt = `Photo ${idx + 1}`;
+                img.className = 'current-photo-item';
+                img.onerror = () => { img.src = 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'; };
+                gallery.appendChild(img);
+            });
+
+            // Reset file replacement inputs & previews
+            ['editPhotoHouse', 'editPhotoRoom', 'editPhotoExtra1', 'editPhotoExtra2', 'editPhotoExtra3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            ['previewEditHouse', 'previewEditRoom', 'previewEditExtra1', 'previewEditExtra2', 'previewEditExtra3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) { el.src = ''; el.style.display = 'none'; }
+            });
+
+            document.getElementById('editAlert').classList.add('d-none');
+            safeOpenModal('editPropertyModal');
+        }
+
+        async function handleEditSubmission(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('editAlert');
+            const submitBtn = document.getElementById('editSubmitBtn');
+            alertBox.classList.add('d-none');
+
+            const propId = document.getElementById('editPropId').value;
+            const title = document.getElementById('editTitle').value.trim();
+            const village = document.getElementById('editVillage').value.trim();
+            const district = document.getElementById('editDistrict').value;
+            const price = document.getElementById('editPrice').value;
+            const description = document.getElementById('editDescription').value.trim();
+            const amenities = document.getElementById('editAmenities').value.trim();
+            const maps_url = document.getElementById('editMapsUrl') ? document.getElementById('editMapsUrl').value.trim() : '';
+
+            const houseFile = document.getElementById('editPhotoHouse').files[0];
+            const roomFile = document.getElementById('editPhotoRoom').files[0];
+            const extra1File = document.getElementById('editPhotoExtra1').files[0];
+            const extra2File = document.getElementById('editPhotoExtra2').files[0];
+            const extra3File = document.getElementById('editPhotoExtra3').files[0];
+
+            const newPhotos = [];
+            if (houseFile) newPhotos.push(houseFile);
+            if (roomFile) newPhotos.push(roomFile);
+            if (extra1File) newPhotos.push(extra1File);
+            if (extra2File) newPhotos.push(extra2File);
+            if (extra3File) newPhotos.push(extra3File);
+
+            // If user decided to upload any replacement photo, enforce min 3
+            if (newPhotos.length > 0) {
+                if (!houseFile || !roomFile || !extra1File) {
+                    alertBox.textContent = 'When replacing photos, you must provide all 3 required views: Whole House (Exterior), Room (Interior), and Extra View.';
+                    alertBox.classList.remove('d-none');
+                    return;
+                }
+                if (newPhotos.length > 5) {
+                    alertBox.textContent = 'Maximum 5 photos allowed.';
+                    alertBox.classList.remove('d-none');
+                    return;
+                }
+            }
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('village', village);
+            formData.append('district', district);
+            formData.append('price_per_night', price);
+            formData.append('description', description);
+            formData.append('amenities', amenities);
+            formData.append('maps_url', maps_url);
+            formData.append('host_id', currentUser ? currentUser.id : 1);
+
+            newPhotos.forEach(f => {
+                formData.append('photos', f);
+            });
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Updating Listing...';
+
+            try {
+                let res = await fetch(`/api/properties/${propId}`, {
+                    method: 'PUT',
+                    body: formData
+                });
+                if (!res.ok) {
+                    res = await fetch(`/api/properties/${propId}/edit`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                }
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to update property.');
+                }
+
+                safeCloseModal('editPropertyModal');
+                showToast(`✅ "${escapeHtml(title)}" updated successfully!`);
+                await loadUserProperties();
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-check me-1"></i> Save Changes';
+            }
+        }
+
+        // ==========================================
+        // 4. DELETE / DELIST PROPERTY
+        // ==========================================
+        async function confirmDeleteProperty(propId) {
+            const property = cachedProperties.find(p => p.id == propId);
+            const title = property ? property.title : 'this property';
+            if (!confirm(`Are you sure you want to delist "${title}"? This will remove the listing from the platform.`)) {
+                return;
+            }
+
+            try {
+                let res = await fetch(`/api/properties/${propId}`, {
+                    method: 'DELETE'
+                });
+                if (!res.ok) {
+                    res = await fetch(`/api/properties/${propId}/delete`, {
+                        method: 'POST'
+                    });
+                }
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to delist property.');
+                }
+
+                showToast(`🗑️ "${title}" delisted successfully.`);
+                await loadUserProperties();
+            } catch (err) {
+                alert('Could not delist property: ' + err.message);
+            }
+        }
+
+        // ==========================================
+        // 5. CREATE NEW LISTING FROM PROFILE
+        // ==========================================
+        function openHostModal() {
+            document.getElementById('hostForm').reset();
+            ['previewHostHouse', 'previewHostRoom', 'previewHostExtra1', 'previewHostExtra2', 'previewHostExtra3'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) { el.src = ''; el.style.display = 'none'; }
+            });
+            document.getElementById('hostAlert').classList.add('d-none');
+            safeOpenModal('hostModal');
+        }
+
+        async function handleHostSubmission(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('hostAlert');
+            const submitBtn = document.getElementById('hostSubmitBtn');
+            alertBox.classList.add('d-none');
+
+            const title = document.getElementById('hostTitle').value.trim();
+            const village = document.getElementById('hostVillage').value.trim();
+            const district = document.getElementById('hostDistrict').value;
+            const price = document.getElementById('hostPrice').value;
+
+            const houseFile = document.getElementById('hostPhotoHouse').files[0];
+            const roomFile = document.getElementById('hostPhotoRoom').files[0];
+            const extra1File = document.getElementById('hostPhotoExtra1').files[0];
+            const extra2File = document.getElementById('hostPhotoExtra2').files[0];
+            const extra3File = document.getElementById('hostPhotoExtra3').files[0];
+
+            if (!houseFile || !roomFile || !extra1File) {
+                alertBox.textContent = 'Minimum 3 photos required: 1 Whole House exterior, 1 Room interior, and 1 Extra view.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            const filesToUpload = [houseFile, roomFile, extra1File];
+            if (extra2File) filesToUpload.push(extra2File);
+            if (extra3File) filesToUpload.push(extra3File);
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('village', village);
+            formData.append('district', district);
+            formData.append('price_per_night', price);
+            formData.append('host_id', currentUser ? currentUser.id : 1);
+
+            filesToUpload.forEach(f => {
+                formData.append('photos', f);
+            });
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Validating & Uploading Photos...';
+
+            try {
+                const res = await fetch('/api/properties', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to list property.');
+                }
+
+                safeCloseModal('hostModal');
+                showToast(`🎉 "${escapeHtml(title)}" was successfully published with ${filesToUpload.length} verified photos!`);
+                await loadUserProperties();
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up me-1"></i> Publish Listing Now';
+            }
+        }
+
+        // ==========================================
+        // SAFE MODAL CONTROLLERS (AVOIDS BOOTSTRAP OVERLAY GLITCHES)
+        // ==========================================
+        function safeOpenModal(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+            
+            // Remove lingering stale backdrops first
+            document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getOrCreateInstance(el);
+                    modal.show();
+                    return;
+                } catch(err) {
+                    console.warn('Bootstrap modal show warning:', err);
+                }
+            }
+
+            // Pure DOM/CSS fallback
+            el.style.display = 'block';
+            el.classList.add('show');
+            el.setAttribute('aria-modal', 'true');
+            el.removeAttribute('aria-hidden');
+            document.body.classList.add('modal-open');
+
+            if (!document.querySelector('.modal-backdrop')) {
+                const bd = document.createElement('div');
+                bd.className = 'modal-backdrop fade show';
+                bd.onclick = () => safeCloseModal(modalId);
+                document.body.appendChild(bd);
+            }
+        }
+
+        function safeCloseModal(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getInstance(el) || bootstrap.Modal.getOrCreateInstance(el);
+                    if (modal) modal.hide();
+                } catch(err) {
+                    console.warn('Bootstrap modal hide warning:', err);
+                }
+            }
+
+            // Always ensure clean visual dismissal without recursive events
+            setTimeout(() => {
+                el.classList.remove('show');
+                el.style.display = 'none';
+                el.setAttribute('aria-hidden', 'true');
+                el.removeAttribute('aria-modal');
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+                document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+            }, 120);
+        }
+
+        // Global delegated listener for close buttons, backdrops, and Escape key
+        document.addEventListener('click', (e) => {
+            const dismissBtn = e.target.closest('[data-bs-dismiss="modal"]') || e.target.closest('.btn-close');
+            if (dismissBtn) {
+                const modal = dismissBtn.closest('.modal');
+                if (modal) {
+                    safeCloseModal(modal.id);
+                }
+            }
+            if (e.target.classList && e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                safeCloseModal(e.target.id);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show, .modal[style*="display: block"]').forEach(m => {
+                    safeCloseModal(m.id);
+                });
+            }
+        });
+
+        // ==========================================
+        // UTILITIES & HELPERS
+        // ==========================================
+        function previewSlotPhoto(input, previewId) {
+            const preview = document.getElementById(previewId);
+            if (!preview) return;
+            const file = input.files && input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        function switchDashboardTab(tab) {
+            const secListings = document.getElementById('sectionListings');
+            const secHostBookings = document.getElementById('sectionHostBookings');
+            const secBookings = document.getElementById('sectionBookings');
+            const tabListings = document.getElementById('tabMyListings');
+            const tabHostBookings = document.getElementById('tabHostBookings');
+            const tabBookings = document.getElementById('tabMyBookings');
+
+            if (tab === 'listings') {
+                secListings.classList.remove('d-none');
+                if (secHostBookings) secHostBookings.classList.add('d-none');
+                secBookings.classList.add('d-none');
+                tabListings.classList.add('active');
+                if (tabHostBookings) tabHostBookings.classList.remove('active');
+                tabBookings.classList.remove('active');
+            } else if (tab === 'host-bookings') {
+                secListings.classList.add('d-none');
+                if (secHostBookings) secHostBookings.classList.remove('d-none');
+                secBookings.classList.add('d-none');
+                tabListings.classList.remove('active');
+                if (tabHostBookings) tabHostBookings.classList.add('active');
+                tabBookings.classList.remove('active');
+            } else {
+                secListings.classList.add('d-none');
+                if (secHostBookings) secHostBookings.classList.add('d-none');
+                secBookings.classList.remove('d-none');
+                tabListings.classList.remove('active');
+                if (tabHostBookings) tabHostBookings.classList.remove('active');
+                tabBookings.classList.add('active');
+            }
+        }
+
+        function showToast(message) {
+            const toastEl = document.getElementById('liveToast');
+            document.getElementById('toastMessage').textContent = message;
+            const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
+            toast.show();
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('reawakened_user');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

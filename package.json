@@ -1,0 +1,30 @@
+{
+  "name": "reawakened-hills",
+  "version": "1.0.0",
+  "description": "Rural homestay and tourism platform to revitalize ghost villages in Uttarakhand",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "init-db": "node scripts/init-db.js"
+  },
+  "keywords": [
+    "uttarakhand",
+    "tourism",
+    "homestay",
+    "ghost-villages",
+    "chardham",
+    "himalayas"
+  ],
+  "author": "Reawakened Hills Team",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6"
+  }
+}

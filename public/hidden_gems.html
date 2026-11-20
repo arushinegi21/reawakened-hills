@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offbeat Hidden Gems | Reawakened Hills</title>
+    
+    <!-- Google Fonts & Bootstrap 5 CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-green: #1b4332;
+            --brand-earth: #8b5a2b;
+            --radius-xl: 16px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2b2d42;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 16px 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--brand-green) !important;
+        }
+
+        .hero-banner {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.75) 100%), 
+                        url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .region-header {
+            border-left: 6px solid var(--brand-green);
+            padding-left: 16px;
+            margin-top: 50px;
+            margin-bottom: 24px;
+        }
+
+        .district-title {
+            color: var(--brand-earth);
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .gem-card {
+            border: none;
+            border-radius: var(--radius-xl);
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        .gem-card:hover {
+            transform: translateY(-4px);
+        }
+        .gem-img {
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .gem-badge {
+            background: #e2e8f0;
+            color: #334155;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: #ffffff;
+                padding: 16px;
+                border-radius: 16px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                margin-top: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner {
+                padding: 55px 0 35px;
+                border-radius: 0 0 20px 20px;
+            }
+            .hero-banner h1 {
+                font-size: 2rem !important;
+            }
+            .gem-img {
+                height: 190px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-mountain-sun me-2"></i>Reawakened Hills
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="chardham.html">Char Dham Guide</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold active text-success" href="hidden-gems.html">Hidden Gems</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="index.html#explore" class="btn btn-outline-success rounded-pill px-4 btn-sm fw-bold">Explore Homestays</a>
+                    </li>
+                    <li class="nav-item ms-lg-2" id="navAuthSlot">
+                        <div class="d-flex align-items-center gap-1">
+                            <a href="login.html" class="btn btn-outline-dark rounded-pill px-3 btn-sm fw-bold">Log In</a>
+                            <a href="signup.html" class="btn btn-success rounded-pill px-3 btn-sm fw-bold" style="background-color: var(--brand-green); border-color: var(--brand-green);">Sign Up</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero-banner text-center">
+        <div class="container">
+            <span class="badge bg-success px-3 py-2 rounded-pill fw-bold mb-3">Beyond Commercial Tourism</span>
+            <h1 class="fw-bold display-5 mb-2">Unexplored Uttarakhand Gems</h1>
+            <p class="lead text-white-50 max-w-600 mx-auto">Discover quiet villages, secret meadows, and pristine trails across all 13 districts of Garhwal and Kumaon.</p>
+        </div>
+    </header>
+
+    <!-- MAIN GUIDE CONTENT -->
+    <main class="container my-5">
+
+        <!-- ================= GARHWAL REGION (7 DISTRICTS) ================= -->
+        <div class="region-header">
+            <h2 class="fw-bold mb-1 text-success"><i class="fa-solid fa-mountain me-2"></i>Garhwal Region (7 Districts)</h2>
+            <p class="text-muted mb-0">High mountain passes, ancient stone settlements, and pristine lakes.</p>
+        </div>
+
+        <!-- 1. Tehri Garhwal -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>1. Tehri Garhwal (Near New Tehri)</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://travelchardham.com/sites/default/files/2024-11/Koti%20Kanasar%20Village%20Entry.jpg" class="gem-img" alt="Koti Kanasar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Koti Kanasar & Kyari Village</h5>
+                            <span class="gem-badge">Near Tehri Lake</span>
+                        </div>
+                        <p class="text-muted small mb-3">A quiet rustic hamlet overlooking deep forest valleys near New Tehri. Surrounded by centuries-old wooden ancestral homes, away from commercial lake water sports crowds.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-eye me-1 text-primary"></i> Pine Ridge</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-house-chimney me-1 text-success"></i> Timber Stays</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="images/sem-mukhem-temple.jpg" class="gem-img" alt="Sem Mukhem Temple">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Pavitra Sem Mukhem</h5>
+                            <span class="gem-badge">High Ridge Trail</span>
+                        </div>
+                        <p class="text-muted small mb-3">A pristine hilltop dedicated to Lord Nagaraja sitting at 2,900 m. Offers sweeping 360-degree views of snow peaks and untouched oak forests overlooking the Bhagirathi valley.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-person-walking me-1 text-warning"></i> 7 km Trek</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-mountain-sun me-1 text-info"></i> Panoramic Views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Uttarkashi -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>2. Uttarkashi District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="images/harshil-valley-uttarakhand.jpg" class="gem-img" alt="Bagori Village (Harsil Valley)">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Bagori Village (Harsil Valley)</h5>
+                            <span class="gem-badge">Tribal Heritage</span>
+                        </div>
+                        <p class="text-muted small mb-3">An ancient wooden Bhotia settlement near Harsil. Known for handwoven sheep-wool shawls, ornate Tibetan-style carved doorways, and apple orchards.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-palette me-1 text-danger"></i> Architecture</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-apple-whole me-1 text-success"></i> Apple Orchards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="images/gartang-gali.jpg" class="gem-img" alt="Gartang Gali">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Gartang Gali</h5>
+                            <span class="gem-badge">Historic Silk Route</span>
+                        </div>
+                        <p class="text-muted small mb-3">A 150-year-old cliffside wooden bridge cantilevered on a vertical granite wall inside Nelong Valley. Used historically by Indo-Tibetan merchants.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-bridge me-1 text-secondary"></i> Cliff Boardwalk</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-compass me-1 text-primary"></i> Nelong Border</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Chamoli -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>3. Chamoli District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="images/niti-valley.jpg" class="gem-img" alt="Niti Valley & Urgam">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Niti Valley & Urgam</h5>
+                            <span class="gem-badge">Border Settlement</span>
+                        </div>
+                        <p class="text-muted small mb-3">Tucked away near the Indo-Tibet border, Niti offers stark cold-desert landscapes and traditional stone houses, while Urgam valley is home to Kalpeshwar temple.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-snowflake me-1 text-info"></i> Alpine Valley</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-om me-1 text-warning"></i> Panch Kedar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="images/ghes.jpg" class="gem-img" alt="Ghesh & Wan Village">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Ghesh & Wan Village</h5>
+                            <span class="gem-badge">Base for Bugyals</span>
+                        </div>
+                        <p class="text-muted small mb-3">Secluded high-altitude farming villages famous for terraced kidney-bean fields and serving as the gateway to Bedni and Ali Bugyal alpine meadows.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-wheat-awn me-1 text-warning"></i> Terraced Farms</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-tree me-1 text-success"></i> Oak Canopy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Rudraprayag -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>4. Rudraprayag District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://cdn.britannica.com/30/264930-050-DBC3A190/Bhagirathi-River-in-Surya-Kund-Uttarakhand-India-2024.jpg" class="gem-img" alt="Ransi Valley">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Ransi & Kalimath Valley</h5>
+                            <span class="gem-badge">Cultural Valley</span>
+                        </div>
+                        <p class="text-muted small mb-3">Quiet river valleys with stone-paved paths, ancient slate roofs, and organic cardamom farms, bypassing the main Kedarnath highway commotion.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-water me-1 text-primary"></i> Streams</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-seedling me-1 text-success"></i> Organic Farms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://www.chardhamtour.in/assets/images/tourism/badrinath-temples.webp" class="gem-img" alt="Triyuginarayan">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Triyuginarayan Backtrails</h5>
+                            <span class="gem-badge">Historic Site</span>
+                        </div>
+                        <p class="text-muted small mb-3">Beyond the main eternal flame temple lie untouched apple villages and pine meadows where local hosts welcome travelers with traditional Pahadi food.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-fire me-1 text-danger"></i> Heritage Legend</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-utensils me-1 text-warning"></i> Local Cuisine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Pauri Garhwal -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>5. Pauri Garhwal District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Khirsu">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Khirsu Village</h5>
+                            <span class="gem-badge">Pine Ridge</span>
+                        </div>
+                        <p class="text-muted small mb-3">A peaceful oak and deodar ridge offering clear views of 300 Himalayan peaks. Known for old apple orchards and silent forest walks.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-mountain me-1 text-secondary"></i> Peak Views</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-wind me-1 text-info"></i> Forest Trail</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Tarekeshwar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Tarekeshwar Forest Ridge</h5>
+                            <span class="gem-badge">Sacred Grove</span>
+                        </div>
+                        <p class="text-muted small mb-3">Densely shaded by giant deodar trees where sunlight barely touches the forest floor. Features rustic homestays run by native caretakers.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-tree me-1 text-success"></i> Deodar Grove</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-campground me-1 text-earth"></i> Off-grid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Dehradun -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>6. Dehradun District (Rural Belts)</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Jaunsar-Bawar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Jaunsar-Bawar (Lakhamandal)</h5>
+                            <span class="gem-badge">Tribal Culture</span>
+                        </div>
+                        <p class="text-muted small mb-3">A distinct cultural belt featuring unique wooden temples, ancient Mahabharata archaeological ruins, and traditional Jaunsari stone houses.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-landmark me-1 text-warning"></i> Ruins</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-people-group me-1 text-primary"></i> Folk Culture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Thano">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Thano & Maldevta Ridge</h5>
+                            <span class="gem-badge">Foothill Escape</span>
+                        </div>
+                        <p class="text-muted small mb-3">Quiet forest river valleys hidden just behind Dehradun city, known for pristine clear-water streams, fruit farms, and birdwatching trails.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-dove me-1 text-info"></i> Birds</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-water me-1 text-primary"></i> Stream Stays</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. Haridwar -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>7. Haridwar District (Rural Belts)</h4>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Chilla Forest">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Chilla Forest Edge (Rajaji)</h5>
+                            <span class="gem-badge">Wildlife Buffer</span>
+                        </div>
+                        <p class="text-muted small mb-3">A serene eco-belt on the edge of Rajaji National Park. Features organic farm stays away from the noisy main Haridwar ghats.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-hippo me-1 text-success"></i> Wildlife</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-tractor me-1 text-warning"></i> Agro-Tourism</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Piran Kaliyar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Piran Kaliyar Rural Outskirts</h5>
+                            <span class="gem-badge">Canal Heritage</span>
+                        </div>
+                        <p class="text-muted small mb-3">Quiet canal-side villages surrounded by mango orchards and sugarcane fields, offering calm rural retreats near historic aqueducts.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-water me-1 text-info"></i> Canals</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-leaf me-1 text-success"></i> Orchards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ================= KUMAON REGION (6 DISTRICTS) ================= -->
+        <div class="region-header">
+            <h2 class="fw-bold mb-1 text-earth" style="color: var(--brand-earth);"><i class="fa-solid fa-tree me-2"></i>Kumaon Region (6 Districts)</h2>
+            <p class="text-muted mb-0">Fruit orchards, panoramic glacier views, and traditional Aipan art culture.</p>
+        </div>
+
+        <!-- 1. Pithoragarh -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>1. Pithoragarh District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Dharchula">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Dharchula & Darma Valley</h5>
+                            <span class="gem-badge">High Glacier Valley</span>
+                        </div>
+                        <p class="text-muted small mb-3">A dramatic valley near the Panchachuli peaks. Features stone villages with vibrant Rung tribal heritage and alpine meadows.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-icicles me-1 text-info"></i> Glaciers</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-shirt me-1 text-danger"></i> Handloom</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Munsiyari">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Munsiyari Backcountry (Darkot)</h5>
+                            <span class="gem-badge">Handloom Village</span>
+                        </div>
+                        <p class="text-muted small mb-3">Famous for wooden ancestral homes where locals weave Angora wool craft, set directly against the snow towers of Panchachuli.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-scissors me-1 text-secondary"></i> Wool Craft</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-mountain-sun me-1 text-warning"></i> Peaks</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Almora -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>2. Almora District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Jageshwar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Jageshwar Backwood (Artola)</h5>
+                            <span class="gem-badge">Cedar Forest</span>
+                        </div>
+                        <p class="text-muted small mb-3">Quiet ancestral hamlets set deep within giant deodar forests, home to ancient Aipan floor art traditions and organic herbal teas.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-paintbrush me-1 text-danger"></i> Aipan Art</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-tree me-1 text-success"></i> Sanctuary</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Kasardevi">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Kasardevi Ridge (Crank's Ridge)</h5>
+                            <span class="gem-badge">Geomagnetic Belt</span>
+                        </div>
+                        <p class="text-muted small mb-3">Positioned on a rare Van Allen radiation geomagnetic belt. Famous for silent pine trails, sunset ridge views, and artist retreats.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-magnet me-1 text-primary"></i> Energy Belt</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-sun me-1 text-warning"></i> Sunsets</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Nainital -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>3. Nainital District (Rural Belts)</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Pangot">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Pangot & Kilbury</h5>
+                            <span class="gem-badge">Bird Sanctuary</span>
+                        </div>
+                        <p class="text-muted small mb-3">Tucked away from commercial Nainital lake crowds, Pangot is a quiet hamlet nestled in oak forest, home to over 500 species of birds.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-crow me-1 text-info"></i> Birding</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-campground me-1 text-success"></i> Oak Canopy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Mukteshwar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Mukteshwar Fruit Belts (Ramgarh)</h5>
+                            <span class="gem-badge">Fruit Orchards</span>
+                        </div>
+                        <p class="text-muted small mb-3">Rolling hills packed with plum, peach, and apricot trees. Vacant colonial-era and stone homestays offer pristine valley views.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-lemon me-1 text-warning"></i> Orchards</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-mountain me-1 text-secondary"></i> Peak Views</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Bageshwar -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>4. Bageshwar District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Kausani">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Kausani Back-Country (Anasakti)</h5>
+                            <span class="gem-badge">300 km Peak View</span>
+                        </div>
+                        <p class="text-muted small mb-3">Surrounded by tea gardens and pine ridges. Offers unobstructed sunrise views over Nanda Devi, Trishul, and Panchachuli peaks.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-mug-hot me-1 text-success"></i> Tea Gardens</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-sun me-1 text-warning"></i> Sunrise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Khati Village">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Pindari Trail Base (Khati Village)</h5>
+                            <span class="gem-badge">Last Inhabited Village</span>
+                        </div>
+                        <p class="text-muted small mb-3">The final inhabited village on the Pindari Glacier trek route. Features stone houses with slate roofs and traditional wooden hearths.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-person-hiking me-1 text-primary"></i> Glacier Trek</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-house-crack me-1 text-secondary"></i> Slate Roofs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Champawat -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>5. Champawat District</h4>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Abbott Mount">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Abbott Mount</h5>
+                            <span class="gem-badge">Colonial Heritage</span>
+                        </div>
+                        <p class="text-muted small mb-3">A quiet European-style clearing surrounded by dense pine forests. Features 13 isolated colonial cottages built in the early 1900s.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-building me-1 text-danger"></i> Cottages</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-cloud-sun me-1 text-info"></i> Ridge Walk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Lohaghat">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Lohaghat & Mayawati Ashram</h5>
+                            <span class="gem-badge">Spiritual Sanctuary</span>
+                        </div>
+                        <p class="text-muted small mb-3">A peaceful pine-covered town near the Saryu River, known for medicinal herbal tea farms and historical ashram forest trails.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-brain me-1 text-primary"></i> Meditation</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-envira me-1 text-success"></i> Herbal Farms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Udham Singh Nagar -->
+        <h4 class="district-title"><i class="fa-solid fa-location-dot me-2"></i>6. Udham Singh Nagar District</h4>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Nanakmatta">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Nanakmatta Rural Wetlands</h5>
+                            <span class="gem-badge">Lake Buffer</span>
+                        </div>
+                        <p class="text-muted small mb-3">Serene agricultural and lake wetlands surrounded by sugarcane farms, offering unique rural cycling routes and migratory bird spotting.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-water me-1 text-primary"></i> Wetlands</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-bicycle me-1 text-warning"></i> Cycling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card gem-card">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80" class="gem-img" alt="Drona Sagar">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Drona Sagar Agro-Belts</h5>
+                            <span class="gem-badge">Ancient Pond Site</span>
+                        </div>
+                        <p class="text-muted small mb-3">Quiet farm hamlets around historic water tanks near Kashipur, surrounded by mustard fields and fresh organic dairy farms.</p>
+                        <div>
+                            <span class="badge bg-light text-dark me-1"><i class="fa-solid fa-cow me-1 text-danger"></i> Dairy Farms</span>
+                            <span class="badge bg-light text-dark"><i class="fa-solid fa-sun-plant-wilt me-1 text-success"></i> Mustard Fields</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1"><i class="fa-solid fa-mountain-sun text-success me-2"></i>Reawakened Hills - Reviving Ghost Villages in Uttarakhand</p>
+            <small class="text-muted">MCA Minor Project | Jagan Institute of Management Studies (JIMS)</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const stored = localStorage.getItem('reawakened_user');
+                if (stored) {
+                    const user = JSON.parse(stored);
+                    const slot = document.getElementById('navAuthSlot');
+                    if (slot) {
+                        slot.innerHTML = `
+                            <div class="d-flex align-items-center gap-2">
+                                <a href="profile.html" class="btn btn-light rounded-pill px-3 btn-sm fw-bold border"><i class="fa-solid fa-circle-user text-success me-1"></i> Profile (${user.name.split(' ')[0]})</a>
+                                <button class="btn btn-outline-danger rounded-pill px-3 btn-sm fw-bold" onclick="localStorage.removeItem('reawakened_user'); location.reload();">Log Out</button>
+                            </div>
+                        `;
+                    }
+                }
+            } catch(e) {}
+        });
+    </script>
+</body>
+</html>

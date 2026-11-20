@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Reawakened Hills | Authentic Mountain Homestays & Char Dham Guide</title>
+    
+    <!-- Google Fonts & Bootstrap 5 CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --brand-green: #1b4332;
+            --brand-green-hover: #081c15;
+            --brand-gold: #d4a373;
+            --brand-earth: #8b5a2b;
+            --bg-light: #faf0ca0a;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius-xl: 20px;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2b2d42;
+            background-color: #f8f9fa;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* NAVBAR STYLES */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 14px 0;
+            z-index: 1030;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--brand-green) !important;
+            letter-spacing: -0.5px;
+        }
+        .nav-link {
+            font-weight: 600;
+            color: #4a5568 !important;
+            margin: 0 6px;
+            padding: 8px 12px !important;
+            transition: color 0.2s;
+            border-radius: 8px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--brand-green) !important;
+            background-color: rgba(27, 67, 50, 0.04);
+        }
+        .btn-host {
+            background-color: #e8f5e9;
+            color: var(--brand-green);
+            font-weight: 700;
+            border-radius: 30px;
+            padding: 8px 20px;
+            border: 1px solid rgba(27, 67, 50, 0.2);
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .btn-host:hover {
+            background-color: var(--brand-green);
+            color: #fff;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.72) 100%), 
+                        url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+            padding: 120px 0 100px;
+            color: white;
+            border-radius: 0 0 36px 36px;
+        }
+        .hero-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.18;
+        }
+
+        /* FLOATING SEARCH BAR */
+        .search-card {
+            background: #ffffff;
+            border-radius: 50px;
+            padding: 12px 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            margin-top: -45px;
+            border: 1px solid rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 10;
+        }
+        .search-input {
+            border: none;
+            outline: none;
+            box-shadow: none !important;
+            font-weight: 500;
+            background: transparent;
+            font-size: 0.95rem;
+        }
+        .search-divider {
+            border-left: 1px solid #e2e8f0;
+            padding-left: 1rem;
+        }
+
+        /* HOMESTAY CARDS */
+        .stay-card {
+            border: none;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .stay-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--card-shadow);
+        }
+        .stay-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+            background-color: #e2e8f0;
+        }
+        .stay-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .stay-card:hover .stay-img {
+            transform: scale(1.05);
+        }
+        .badge-verified {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(5px);
+            color: var(--brand-green);
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .price-tag {
+            font-weight: 800;
+            font-size: 1.25rem;
+            color: var(--brand-green);
+        }
+
+        /* SECTION HEADERS */
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        /* FEATURE BOXES */
+        .feature-box {
+            background: #ffffff;
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            border: 1px solid rgba(0,0,0,0.06);
+            height: 100%;
+            transition: all 0.3s;
+        }
+        .feature-box:hover {
+            box-shadow: var(--card-shadow);
+            transform: translateY(-4px);
+        }
+        .icon-circle {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-brand {
+            background-color: var(--brand-green);
+            color: white;
+            font-weight: 700;
+            border-radius: 12px;
+            padding: 12px 24px;
+            border: none;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-green-hover);
+            color: white;
+        }
+        .btn-brand:active {
+            transform: scale(0.98);
+        }
+
+        /* AUTH TABS */
+        .nav-pills-auth .nav-link {
+            border-radius: 30px;
+            color: #4a5568 !important;
+            font-weight: 700;
+            padding: 8px 24px;
+        }
+        .nav-pills-auth .nav-link.active {
+            background-color: var(--brand-green) !important;
+            color: #ffffff !important;
+        }
+
+        /* TOAST CONTAINER */
+        .toast-container {
+            z-index: 1090;
+        }
+
+        /* IMAGE PREVIEW */
+        .img-preview-box {
+            max-height: 160px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            display: none;
+            margin-top: 10px;
+            border: 2px dashed #cbd5e1;
+        }
+
+        /* STAY DETAILS GALLERY & MODAL ENHANCEMENTS */
+        .gallery-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            color: var(--brand-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        }
+        .gallery-nav-btn:hover {
+            background: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+            color: var(--brand-green-hover);
+        }
+        .gallery-prev-btn { left: 12px; }
+        .gallery-next-btn { right: 12px; }
+
+        .thumbnail-card {
+            width: 78px;
+            height: 56px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2.5px solid transparent;
+            opacity: 0.65;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            background-color: #e2e8f0;
+        }
+        .thumbnail-card:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+        .thumbnail-card.active {
+            border-color: var(--brand-green);
+            opacity: 1;
+            box-shadow: 0 0 0 3px rgba(27, 67, 50, 0.25);
+        }
+        .thumbnail-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .amenity-chip {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 14px;
+            transition: all 0.2s ease;
+        }
+        .amenity-chip:hover {
+            border-color: var(--brand-green);
+            background-color: #f0fdf4;
+            transform: translateY(-1px);
+        }
+
+        /* ======================================================== */
+        /* RESPONSIVE BREAKPOINTS (MOBILE & TABLET OPTIMIZATIONS) */
+        /* ======================================================== */
+
+        /* Tablets and below (<= 991px) */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: #ffffff;
+                padding: 16px;
+                border-radius: 16px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+                margin-top: 12px;
+            }
+            .navbar-nav {
+                margin-bottom: 12px;
+            }
+            #navAuthContainer {
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 8px;
+                width: 100%;
+            }
+            #navAuthContainer .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
+        /* Mobile phones (<= 767px) */
+        @media (max-width: 767.98px) {
+            .hero-section {
+                padding: 85px 0 70px;
+                border-radius: 0 0 24px 24px;
+            }
+            .hero-title {
+                font-size: 2.1rem;
+                letter-spacing: -0.5px;
+            }
+            .hero-section .lead {
+                font-size: 1rem;
+            }
+
+            /* Responsive Search Card on Mobile */
+            .search-card {
+                border-radius: 20px;
+                padding: 16px;
+                margin-top: -30px;
+            }
+            .search-divider {
+                border-left: none;
+                border-top: 1px solid #edf2f7;
+                padding-left: 0;
+                padding-top: 10px;
+                margin-top: 8px;
+            }
+            .search-card .search-input {
+                font-size: 1rem;
+                padding: 4px 0;
+            }
+            .search-card select {
+                font-size: 0.95rem;
+                padding: 4px 0;
+            }
+            .search-card button[type="submit"] {
+                padding: 12px 16px !important;
+                margin-top: 8px;
+            }
+
+            .stay-img-wrapper {
+                height: 210px;
+            }
+            .feature-box {
+                padding: 24px;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Small Mobile (<= 480px) */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.85rem;
+            }
+            .modal-dialog {
+                margin: 12px;
+            }
+            .price-tag {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-mountain-sun me-2 text-success"></i>Reawakened Hills
+            </a>
+            <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#explore">Find Stays</a></li>
+                    <li class="nav-item"><a class="nav-link" href="chardham.html">Char Dham Guide</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hidden-gems.html">Hidden Gems</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trust">Why Us</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0" id="navAuthContainer">
+                    <!-- BECOME A HOST BUTTON -->
+                    <button class="btn btn-host" onclick="handleBecomeHostClick()">
+                        <i class="fa-solid fa-house-chimney-user me-1"></i> Become a Host
+                    </button>
+                    <!-- LOG IN BUTTON -->
+                    <a href="login.html" class="btn btn-outline-dark rounded-pill px-3 fw-bold text-decoration-none" id="authBtn">
+                        Log In
+                    </a>
+                    <!-- SIGN UP BUTTON -->
+                    <a href="signup.html" class="btn btn-success rounded-pill px-3 fw-bold text-decoration-none" id="signUpBtn" style="background-color: var(--brand-green); border-color: var(--brand-green);">
+                        Sign Up
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero-section text-center">
+        <div class="container px-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-11">
+                    <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold mb-3 shadow-sm d-inline-block">
+                        <i class="fa-solid fa-seedling text-success me-1"></i> Revitalizing Ghost Villages in Uttarakhand
+                    </span>
+                    <h1 class="hero-title mb-3">Live in the Heart of the Himalayas</h1>
+                    <p class="lead text-white-50 mb-3 fw-normal">Book authentic, budget-friendly village ancestral stays while exploring the Char Dham route and hidden mountain trails.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FLOATING SEARCH BAR -->
+    <div class="container px-3">
+        <div class="row justify-content-center">
+            <div class="col-lg-11 col-12">
+                <div class="search-card">
+                    <form class="row g-2 align-items-center" onsubmit="handleSearch(event)">
+                        <!-- Search Location -->
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="d-flex align-items-center ps-md-2">
+                                <i class="fa-solid fa-location-dot text-danger fs-5 me-2"></i>
+                                <div class="w-100">
+                                    <small class="text-muted d-block fw-bold" style="font-size:0.7rem; text-transform:uppercase;">Where</small>
+                                    <input type="text" id="searchInput" class="form-control search-input p-0" placeholder="Mana, Sari, Harsil, Khirsu..." oninput="debounceSearch()">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- District Filter -->
+                        <div class="col-lg-3 col-md-3 col-12 search-divider">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-map text-success fs-5 me-2"></i>
+                                <div class="w-100">
+                                    <small class="text-muted d-block fw-bold" style="font-size:0.7rem; text-transform:uppercase;">District</small>
+                                    <select id="districtFilter" class="form-select border-0 p-0 fw-semibold shadow-none bg-transparent" style="font-size:0.9rem;" onchange="loadProperties()">
+                                        <option value="">All 13 Districts</option>
+                                        <optgroup label="Garhwal Region">
+                                            <option value="Chamoli">Chamoli (Badrinath)</option>
+                                            <option value="Rudraprayag">Rudraprayag (Kedarnath)</option>
+                                            <option value="Uttarkashi">Uttarkashi (Gangotri / Yamunotri)</option>
+                                            <option value="Pauri Garhwal">Pauri Garhwal (Khirsu)</option>
+                                            <option value="Tehri Garhwal">Tehri Garhwal</option>
+                                            <option value="Dehradun">Dehradun</option>
+                                            <option value="Haridwar">Haridwar</option>
+                                        </optgroup>
+                                        <optgroup label="Kumaon Region">
+                                            <option value="Almora">Almora (Jageshwar)</option>
+                                            <option value="Pithoragarh">Pithoragarh (Munsiyari)</option>
+                                            <option value="Nainital">Nainital (Pangot)</option>
+                                            <option value="Bageshwar">Bageshwar (Kausani)</option>
+                                            <option value="Champawat">Champawat</option>
+                                            <option value="Udham Singh Nagar">Udham Singh Nagar</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Experience Filter -->
+                        <div class="col-lg-3 col-md-3 col-12 search-divider">
+                            <div class="d-flex align-items-center">
+                                <i class="fa-solid fa-compass text-warning fs-5 me-2"></i>
+                                <div class="w-100">
+                                    <small class="text-muted d-block fw-bold" style="font-size:0.7rem; text-transform:uppercase;">Experience</small>
+                                    <select id="experienceFilter" class="form-select border-0 p-0 fw-semibold shadow-none bg-transparent" style="font-size:0.9rem;" onchange="loadProperties()">
+                                        <option value="all">All Experiences</option>
+                                        <option value="chardham">Char Dham Route</option>
+                                        <option value="offbeat">Offbeat Ghost Village</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Search Button -->
+                        <div class="col-lg-2 col-md-2 col-12">
+                            <button type="submit" class="btn btn-brand w-100 rounded-pill py-3">
+                                <i class="fa-solid fa-magnifying-glass me-1"></i> Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="container my-5 pt-3">
+
+        <!-- SECTION 1: FEATURED HOMESTAYS (DYNAMICALLY POPULATED VIA API) -->
+        <section id="explore" class="mb-5">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                <div>
+                    <h2 class="section-title">Authentic Rural Homestays</h2>
+                    <p class="text-muted mb-0">Vacant ancestral homes restored by local village hosts. 100% direct bookings.</p>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-success bg-opacity-10 text-success fw-bold px-3 py-2 rounded-pill" id="propertiesCount">
+                        <i class="fa-solid fa-house me-1"></i> Loading stays...
+                    </span>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 d-none" id="clearFilterBtn" onclick="resetFilters()">
+                        <i class="fa-solid fa-xmark me-1"></i> Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Property Grid -->
+            <div class="row g-4" id="propertiesGrid">
+                <!-- Stays will be rendered here dynamically via fetch('/api/properties') -->
+            </div>
+        </section>
+
+        <!-- SECTION 2: CHAR DHAM & HIDDEN GEMS GUIDES -->
+        <section id="chardham" class="my-5 py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-warning bg-opacity-25 text-dark rounded-pill px-3 py-2 fw-bold mb-2">Curated Tourism Intelligence</span>
+                <h2 class="section-title">Explore Sacred Trails & Hidden Gems</h2>
+                <p class="text-muted">Curated routes to help you skip overcrowded commercial hotels and stay with native hill families.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-12">
+                    <div class="feature-box">
+                        <div class="icon-circle bg-warning bg-opacity-10 text-warning">
+                            <i class="fa-solid fa-gopuram"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Char Dham Yatra Circuit</h4>
+                        <p class="text-muted mb-4">Detailed route directions, altitude advisories, and local homestays positioned right at base points for Badrinath, Kedarnath, Gangotri, and Yamunotri.</p>
+                        <a href="chardham.html" class="btn btn-outline-dark rounded-pill fw-bold btn-sm px-4">
+                            Explore Char Dham Guide <i class="fa-solid fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="feature-box">
+                        <div class="icon-circle bg-success bg-opacity-10 text-success">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">13-District Hidden Gems</h4>
+                        <p class="text-muted mb-4">Discover quiet ghost villages undergoing revival across all 7 districts of Garhwal and 6 districts of Kumaon. Walk through silent streets and experience authentic Pahadi hospitality.</p>
+                        <a href="hidden-gems.html" class="btn btn-outline-dark rounded-pill fw-bold btn-sm px-4">
+                            Discover Hidden Spots <i class="fa-solid fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: WHY US / TRUST SECTION -->
+        <section id="trust" class="my-5 py-4">
+            <div class="text-center mb-5">
+                <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-2 fw-bold mb-2">Social Impact & Preservation</span>
+                <h2 class="section-title">Why Book with Reawakened Hills?</h2>
+                <p class="text-muted">Turning migration into economic empowerment for Uttarakhand's native communities.</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card border-0 bg-white rounded-4 p-4 text-center h-100 shadow-sm">
+                        <div class="text-success fs-1 mb-3"><i class="fa-solid fa-house-chimney-window"></i></div>
+                        <h5 class="fw-bold mb-2">Reviving Ghost Villages</h5>
+                        <p class="text-muted small mb-0">Over 1,000 villages have been deserted due to outmigration. Homestay tourism brings sustainable livelihood back.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card border-0 bg-white rounded-4 p-4 text-center h-100 shadow-sm">
+                        <div class="text-primary fs-1 mb-3"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h5 class="fw-bold mb-2">Photo Verified Homes</h5>
+                        <p class="text-muted small mb-0">Properties are authentic ancestral homes verified by local village coordinators with zero false listings.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card border-0 bg-white rounded-4 p-4 text-center h-100 shadow-sm">
+                        <div class="text-warning fs-1 mb-3"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <h5 class="fw-bold mb-2">100% Host Payout</h5>
+                        <p class="text-muted small mb-0">No middleman commissions. Your booking fees go straight into the hands of the local Pahadi families.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="card border-0 bg-white rounded-4 p-4 text-center h-100 shadow-sm">
+                        <div class="text-danger fs-1 mb-3"><i class="fa-solid fa-utensils"></i></div>
+                        <h5 class="fw-bold mb-2">Authentic Pahadi Cuisine</h5>
+                        <p class="text-muted small mb-0">Enjoy slow-cooked Mandua rotis, Gahat ki Dal, organic apple preserves, and farm-fresh butter made with love.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 1: BECOME A HOST (AIRBNB STYLE DIRECT LISTING) -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="hostModal" tabindex="-1" aria-labelledby="hostModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 rounded-4 overflow-hidden shadow">
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <!-- Left Banner (Desktop) -->
+                        <div class="col-md-5 d-none d-md-block" style="background: url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80') center/cover;">
+                            <div class="p-4 text-white h-100 d-flex flex-column justify-content-end" style="background: linear-gradient(transparent, rgba(0,0,0,0.88));">
+                                <span class="badge bg-success rounded-pill px-3 py-1 mb-2 align-self-start fw-bold">Direct Marketplace</span>
+                                <h4 class="fw-bold">Earn from Your Ancestral Home</h4>
+                                <p class="small text-white-50 mb-0">Help preserve your roots while creating sustainable rural tourism in Uttarakhand. Listings go live instantly with "Photo Verified" trust badges.</p>
+                            </div>
+                        </div>
+                        <!-- Right Form -->
+                        <div class="col-md-7 col-12 p-4 p-md-5">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h4 class="fw-bold mb-0" id="hostModalLabel">List Your Property</h4>
+                                    <small class="text-muted">Instant activation with Photo-Verified badge</small>
+                                </div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('hostModal')"></button>
+                            </div>
+                            
+                            <div id="hostAlert" class="alert alert-danger py-2 px-3 small d-none" role="alert"></div>
+                            <div id="hostNotice" class="alert alert-info py-2 px-3 small d-none" role="alert"></div>
+
+                            <form id="hostForm" onsubmit="handleHostSubmission(event)">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small">Property / House Title</label>
+                                    <input type="text" id="hostTitle" class="form-control rounded-3" placeholder="e.g. Rawat Ancestral Heritage Home" required>
+                                </div>
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6">
+                                        <label class="form-label fw-semibold small">Village Name</label>
+                                        <input type="text" id="hostVillage" class="form-control rounded-3" placeholder="e.g. Mana or Sari" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label fw-semibold small">District</label>
+                                        <select id="hostDistrict" class="form-select rounded-3" required>
+                                            <option value="">Choose District</option>
+                                            <option value="Chamoli">Chamoli</option>
+                                            <option value="Rudraprayag">Rudraprayag</option>
+                                            <option value="Uttarkashi">Uttarkashi</option>
+                                            <option value="Pauri Garhwal">Pauri Garhwal</option>
+                                            <option value="Tehri Garhwal">Tehri Garhwal</option>
+                                            <option value="Almora">Almora</option>
+                                            <option value="Pithoragarh">Pithoragarh</option>
+                                            <option value="Nainital">Nainital</option>
+                                            <option value="Bageshwar">Bageshwar</option>
+                                            <option value="Champawat">Champawat</option>
+                                            <option value="Dehradun">Dehradun</option>
+                                            <option value="Haridwar">Haridwar</option>
+                                            <option value="Udham Singh Nagar">Udham Singh Nagar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small">Nightly Rate (₹ INR)</label>
+                                    <input type="number" id="hostPrice" class="form-control rounded-3" placeholder="e.g. 850" min="200" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small">Description & Cultural Story (2-3 lines)</label>
+                                    <textarea id="hostDescription" class="form-control rounded-3" rows="2" placeholder="e.g. 100-year-old restored stone and deodar cottage overlooking snow peaks. Quiet ghost village revival stay."></textarea>
+                                    <small class="text-muted d-block mt-1" style="font-size: 0.75rem;">Give guests a brief 2-line story about your ancestral home, village heritage, and surroundings.</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small d-block">What this place offers (Amenities)</label>
+                                    <div class="d-flex flex-wrap gap-2 mb-2">
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amParking" value="Free Parking" checked>
+                                            <label class="form-check-label fw-semibold" for="amParking"><i class="fa-solid fa-square-parking text-primary me-1"></i> Free Parking</label>
+                                        </div>
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amWifi" value="Wi-Fi" checked>
+                                            <label class="form-check-label fw-semibold" for="amWifi"><i class="fa-solid fa-wifi text-success me-1"></i> Wi-Fi</label>
+                                        </div>
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amTv" value="TV" checked>
+                                            <label class="form-check-label fw-semibold" for="amTv"><i class="fa-solid fa-tv text-info me-1"></i> TV</label>
+                                        </div>
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amFridge" value="Refrigerator" checked>
+                                            <label class="form-check-label fw-semibold" for="amFridge"><i class="fa-solid fa-snowflake text-primary me-1"></i> Refrigerator</label>
+                                        </div>
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amKitchen" value="Kitchen" checked>
+                                            <label class="form-check-label fw-semibold" for="amKitchen"><i class="fa-solid fa-kitchen-set text-warning me-1"></i> Kitchen</label>
+                                        </div>
+                                        <div class="form-check form-check-inline bg-white px-2 py-1 rounded-2 border small m-0">
+                                            <input class="form-check-input host-amenity-cb" type="checkbox" id="amMeals" value="Traditional Pahadi Meals" checked>
+                                            <label class="form-check-label fw-semibold" for="amMeals"><i class="fa-solid fa-utensils text-success me-1"></i> Pahadi Meals</label>
+                                        </div>
+                                    </div>
+                                    <input type="text" id="hostCustomAmenities" class="form-control form-control-sm rounded-3" placeholder="Other amenities (e.g. Hot Water, Firewood Hearth, Guided Trail)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small d-flex justify-content-between align-items-center">
+                                        <span><i class="fa-solid fa-map-location-dot text-danger me-1"></i> Exact Location / Google Maps Link</span>
+                                        <span class="badge bg-light text-secondary border">Optional</span>
+                                    </label>
+                                    <input type="url" id="hostMapsUrl" class="form-control rounded-3" placeholder="e.g. https://maps.app.goo.gl/... or Google Maps share link">
+                                    <small class="text-muted d-block mt-1" style="font-size: 0.75rem;">
+                                        Paste your exact Google Maps pin link. If left blank, we auto-create a Google Maps link to your village and district.
+                                    </small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small d-flex justify-content-between align-items-center mb-1">
+                                        <span><i class="fa-solid fa-camera-retro text-success me-1"></i> Ancestral Home Photos</span>
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle">Min 3 • Max 5 Photos</span>
+                                    </label>
+                                    <div class="p-2 border rounded-3 bg-light mb-2 small text-muted">
+                                        <strong>Photo Requirements:</strong> Minimum 3 photos are required to verify your ancestral home (Whole House, Room, & Extra View). You can add up to 5 photos total.
+                                    </div>
+
+                                    <!-- Slot 1: Whole House (Exterior) - Required -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-house-chimney text-success me-1"></i> 1. Whole House View (Exterior) <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="file" id="photoHouse" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewHouse')" required>
+                                        <img id="previewHouse" class="img-preview-box mt-2" alt="House View Preview" style="display:none; max-height:130px; width:100%; object-fit:cover; border-radius:8px;">
+                                    </div>
+
+                                    <!-- Slot 2: Room (Interior) - Required -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-bed text-success me-1"></i> 2. Room View (Interior) <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="file" id="photoRoom" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewRoom')" required>
+                                        <img id="previewRoom" class="img-preview-box mt-2" alt="Room View Preview" style="display:none; max-height:130px; width:100%; object-fit:cover; border-radius:8px;">
+                                    </div>
+
+                                    <!-- Slot 3: Extra View (Required) -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-bold mb-1 text-dark">
+                                            <i class="fa-solid fa-mountain-sun text-success me-1"></i> 3. Extra View (Balcony / Valley / Kitchen) <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="file" id="photoExtra1" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewExtra1')" required>
+                                        <img id="previewExtra1" class="img-preview-box mt-2" alt="Extra View 1 Preview" style="display:none; max-height:130px; width:100%; object-fit:cover; border-radius:8px;">
+                                    </div>
+
+                                    <!-- Slot 4: Extra View 2 (Optional) -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-semibold mb-1 text-muted">
+                                            <i class="fa-regular fa-image text-secondary me-1"></i> 4. Extra View 2 <span class="badge bg-light text-secondary border">Optional</span>
+                                        </label>
+                                        <input type="file" id="photoExtra2" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewExtra2')">
+                                        <img id="previewExtra2" class="img-preview-box mt-2" alt="Extra View 2 Preview" style="display:none; max-height:130px; width:100%; object-fit:cover; border-radius:8px;">
+                                    </div>
+
+                                    <!-- Slot 5: Extra View 3 (Optional) -->
+                                    <div class="mb-2 p-2 border rounded-3 bg-white">
+                                        <label class="form-label small fw-semibold mb-1 text-muted">
+                                            <i class="fa-regular fa-image text-secondary me-1"></i> 5. Extra View 3 <span class="badge bg-light text-secondary border">Optional</span>
+                                        </label>
+                                        <input type="file" id="photoExtra3" class="form-control form-control-sm rounded-2" accept="image/jpeg,image/png,image/webp" onchange="previewSlotPhoto(this, 'previewExtra3')">
+                                        <img id="previewExtra3" class="img-preview-box mt-2" alt="Extra View 3 Preview" style="display:none; max-height:130px; width:100%; object-fit:cover; border-radius:8px;">
+                                    </div>
+
+                                    <small class="text-muted d-block mt-2" style="font-size: 0.75rem;"><i class="fa-solid fa-circle-check text-success me-1"></i> Automatic "Photo Verified" trust badge applied once photos are uploaded.</small>
+                                </div>
+                                <button type="submit" id="hostSubmitBtn" class="btn btn-brand w-100 rounded-3 py-2 fw-bold">
+                                    <i class="fa-solid fa-cloud-arrow-up me-1"></i> Publish Listing Now
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 2: USER AUTHENTICATION (LOGIN & REGISTRATION TABS) -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 p-4 shadow">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0" id="authModalLabel"><i class="fa-solid fa-mountain-sun text-success me-2"></i>Welcome to Reawakened Hills</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('authModal')"></button>
+                </div>
+
+                <!-- Nav Tabs for Login vs Register -->
+                <ul class="nav nav-pills nav-pills-auth mb-3 justify-content-center bg-light p-1 rounded-pill" role="tablist">
+                    <li class="nav-item flex-fill text-center" role="presentation">
+                        <button class="nav-link active w-100" id="tab-login" data-bs-toggle="pill" data-bs-target="#pill-login" onclick="switchAuthTab('login')" type="button" role="tab" aria-controls="pill-login" aria-selected="true">Log In</button>
+                    </li>
+                    <li class="nav-item flex-fill text-center" role="presentation">
+                        <button class="nav-link w-100" id="tab-register" data-bs-toggle="pill" data-bs-target="#pill-register" onclick="switchAuthTab('register')" type="button" role="tab" aria-controls="pill-register" aria-selected="false">Sign Up</button>
+                    </li>
+                </ul>
+
+                <div id="authAlert" class="alert alert-danger py-2 px-3 small d-none" role="alert"></div>
+
+                <div class="tab-content pt-2">
+                    <!-- 1. LOGIN TAB -->
+                    <div class="tab-pane fade show active" id="pill-login">
+                        <form onsubmit="handleLogin(event)">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Email Address</label>
+                                <input type="email" id="loginEmail" class="form-control rounded-3" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Password</label>
+                                <input type="password" id="loginPassword" class="form-control rounded-3" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" id="loginBtn" class="btn btn-brand w-100 rounded-3 mb-3 fw-bold">Log In</button>
+                            <div class="text-center">
+                                <small class="text-muted">Demo Host: <code class="text-success">gopal.mana@reawakenedhills.com</code> | <code class="text-success">Pahadi@123</code></small>
+                            </div>
+                            <div class="text-center pt-2 border-top mt-3">
+                                <small class="text-muted">Don't have an account? <a href="javascript:void(0)" onclick="switchAuthTab('register')" class="fw-bold text-success text-decoration-none">Sign Up here</a></small>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 2. SIGN UP TAB -->
+                    <div class="tab-pane fade" id="pill-register" role="tabpanel" aria-labelledby="tab-register">
+                        <form onsubmit="handleRegister(event)">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Full Name</label>
+                                <input type="text" id="regName" class="form-control rounded-3" placeholder="e.g. Arushi Negi" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Email Address</label>
+                                <input type="email" id="regEmail" class="form-control rounded-3" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Mobile Number</label>
+                                <input type="tel" id="regPhone" class="form-control rounded-3" placeholder="+91 98765 43210" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">Create Password</label>
+                                <input type="password" id="regPassword" class="form-control rounded-3" placeholder="At least 6 characters" minlength="6" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold small">I am primarily a:</label>
+                                <select id="regRole" class="form-select rounded-3">
+                                    <option value="tourist">Tourist / Pilgrim (Looking to stay)</option>
+                                    <option value="host">Village Host (Listing an ancestral home)</option>
+                                    <option value="both">Both</option>
+                                </select>
+                            </div>
+                            <button type="submit" id="registerBtn" class="btn btn-brand w-100 rounded-3 fw-bold">Create Account</button>
+                            <div class="text-center pt-2 border-top mt-3">
+                                <small class="text-muted">Already have an account? <a href="javascript:void(0)" onclick="switchAuthTab('login')" class="fw-bold text-success text-decoration-none">Log In here</a></small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 3: STAY DETAILS & DIRECT RESERVATION MODAL (AIRBNB STYLE) -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="modalStayName" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+            <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+                
+                <!-- MODAL HEADER -->
+                <div class="modal-header border-0 pb-1 pt-3 px-4 d-flex justify-content-between align-items-center bg-white">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1 fw-bold">
+                            <i class="fa-solid fa-mountain-sun me-1"></i> Ancestral Mountain Stay
+                        </span>
+                        <span class="badge bg-light text-dark rounded-pill px-2 py-1 fw-semibold border" id="modalStayRating">
+                            <i class="fa-solid fa-star text-warning me-1"></i> 4.90
+                        </span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2 py-1" id="modalStayVerified">
+                            <i class="fa-solid fa-shield-halved me-1"></i> Photo Verified
+                        </span>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('bookingModal')"></button>
+                </div>
+
+                <!-- MODAL BODY -->
+                <div class="modal-body p-4 pt-2">
+                    
+                    <!-- Property Title & Village Header -->
+                    <div class="mb-3">
+                        <h3 class="fw-bold text-dark mb-1" id="modalStayName">Ancestral Mountain Home</h3>
+                        <div class="d-flex align-items-center gap-2 text-muted small flex-wrap">
+                            <span><i class="fa-solid fa-location-dot text-danger me-1"></i> <strong id="modalStayLocation" class="text-dark">Village, District</strong>, Uttarakhand</span>
+                            <span>•</span>
+                            <span class="text-success fw-bold" id="modalStayPriceDisplay">₹850 / night</span>
+                        </div>
+                    </div>
+
+                    <!-- TWO COLUMN LAYOUT: DETAILS & GALLERY (LEFT) + RESERVATION CARD (RIGHT) -->
+                    <div class="row g-4">
+                        
+                        <!-- LEFT COLUMN: PHOTOS, DESCRIPTION, WHAT THIS PLACE OFFERS, MAPS, HOST -->
+                        <div class="col-lg-7 col-12">
+                            
+                            <!-- 1. MULTI-PHOTO GALLERY WITH CAROUSEL & THUMBNAILS -->
+                            <div class="stay-gallery-container mb-4">
+                                <div class="position-relative main-photo-wrapper rounded-4 overflow-hidden shadow-sm bg-light mb-2" style="height: 360px;">
+                                    <img id="galleryMainImg" src="" class="w-100 h-100 object-fit-cover" alt="Stay Photo" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'">
+                                    
+                                    <!-- Prev / Next Buttons -->
+                                    <button type="button" class="gallery-nav-btn gallery-prev-btn" onclick="prevGalleryPhoto()" aria-label="Previous Photo">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </button>
+                                    <button type="button" class="gallery-nav-btn gallery-next-btn" onclick="nextGalleryPhoto()" aria-label="Next Photo">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                    
+                                    <!-- Photo Counter Badge -->
+                                    <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 end-0 m-3 px-3 py-1 rounded-pill" id="galleryPhotoCounter">
+                                        <i class="fa-solid fa-camera me-1"></i> Photo 1 of 4
+                                    </span>
+
+                                    <!-- Photo Label / Room View Badge -->
+                                    <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 px-3 py-1 rounded-pill" id="galleryPhotoLabel">
+                                        Whole House Exterior
+                                    </span>
+                                </div>
+
+                                <!-- Thumbnails Row -->
+                                <div class="d-flex gap-2 overflow-x-auto pb-1" id="galleryThumbnailsRow">
+                                    <!-- Injected via JavaScript -->
+                                </div>
+                            </div>
+
+                            <!-- 2. DESCRIPTION (2-3 LINE STORY) -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-dark mb-2">
+                                    <i class="fa-solid fa-feather text-success me-2"></i>About this Ancestral Home
+                                </h5>
+                                <p class="text-secondary mb-0" id="modalStayDescription" style="line-height: 1.7; font-size: 0.96rem;">
+                                    Restored ancestral mountain house in Uttarakhand.
+                                </p>
+                            </div>
+
+                            <hr class="my-4 text-muted">
+
+                            <!-- 3. WHAT THIS PLACE OFFERS (AMENITIES SECTION) -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-dark mb-3">
+                                    <i class="fa-solid fa-bell-concierge text-success me-2"></i>What this place offers
+                                </h5>
+                                <div class="row g-2" id="modalStayAmenitiesList">
+                                    <!-- Injected via JavaScript (Parking, Wi-Fi, TV, Fridge, Kitchen, etc.) -->
+                                </div>
+                            </div>
+
+                            <hr class="my-4 text-muted">
+
+                            <!-- 4. LOCATION & EXACT GOOGLE MAPS -->
+                            <div class="mb-4">
+                                <h5 class="fw-bold text-dark mb-2">
+                                    <i class="fa-solid fa-map-location-dot text-danger me-2"></i>Exact Location & Google Maps
+                                </h5>
+                                <p class="text-muted small mb-3">
+                                    Verified ancestral home in <strong id="modalStayVillagePin" class="text-dark">Uttarakhand</strong>. Click below to view exact navigation and driving routes directly on Google Maps.
+                                </p>
+                                
+                                <div class="p-3 bg-light rounded-4 border d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+                                    <div>
+                                        <div class="fw-bold text-dark"><i class="fa-solid fa-location-dot text-danger me-1"></i> Exact Village Location</div>
+                                        <small class="text-muted" id="modalStayAddressLine">Village, District, Uttarakhand, India</small>
+                                    </div>
+                                    <a id="modalStayMapsLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success rounded-pill px-4 fw-bold text-nowrap">
+                                        <i class="fa-brands fa-google me-1"></i> Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square ms-1 small"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <hr class="my-4 text-muted">
+
+                            <!-- 5. HOST DETAILS & MESSAGE HOST SECTION -->
+                            <div class="mb-2">
+                                <h5 class="fw-bold text-dark mb-3">
+                                    <i class="fa-solid fa-user-shield text-success me-2"></i>Meet Your Local Host
+                                </h5>
+                                <div class="card border rounded-4 p-3 bg-light shadow-sm">
+                                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="bg-success text-white fw-bold fs-4 d-flex align-items-center justify-content-center rounded-circle" style="width: 52px; height: 52px;" id="modalHostAvatar">
+                                                H
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-0 text-dark" id="modalHostName">Hosted by Local Village Host</h6>
+                                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill small px-2 py-1 mt-1">
+                                                    <i class="fa-solid fa-check-circle me-1"></i> Verified Local Host
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p class="small text-muted mb-3" id="modalHostBio">
+                                        Your host is a native village resident who helps preserve local mountain architecture and can guide you on authentic trails, homecooked organic meals, and road access.
+                                    </p>
+
+                                    <!-- MESSAGE HOST ACTIONS -->
+                                    <div class="d-flex flex-wrap gap-2 pt-2 border-top">
+                                        <a id="modalHostWhatsAppBtn" href="#" target="_blank" class="btn btn-success rounded-pill px-3 btn-sm fw-bold">
+                                            <i class="fa-brands fa-whatsapp me-1"></i> Message Host on WhatsApp
+                                        </a>
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-3 btn-sm fw-semibold" onclick="toggleHostMessageInput()">
+                                            <i class="fa-regular fa-comment-dots me-1"></i> Send Quick Question
+                                        </button>
+                                    </div>
+
+                                    <!-- Collapsible Quick Message Box -->
+                                    <div id="hostQuickMessageBox" class="mt-3 pt-3 border-top d-none">
+                                        <label class="form-label small fw-semibold">Ask host a question before booking:</label>
+                                        <div class="input-group">
+                                            <input type="text" id="hostQuickMessageText" class="form-control form-control-sm rounded-start-3" placeholder="e.g. Can I request homemade Mandua roti and bonfire?">
+                                            <button class="btn btn-brand btn-sm rounded-end-3 px-3 fw-bold" onclick="sendHostQuickQuestion()">Send</button>
+                                        </div>
+                                        <div id="hostQuickMessageSuccess" class="small text-success mt-1 d-none">
+                                            <i class="fa-solid fa-circle-check me-1"></i> Question sent to host! They will reply via your contact number.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT COLUMN: DIRECT RESERVATION REQUEST & DUMMY PAYMENT FORM -->
+                        <div class="col-lg-5 col-12">
+                            <div class="card border-0 rounded-4 shadow-sm p-4 sticky-top" style="top: 20px; background-color: #ffffff; border: 1px solid #e2e8f0 !important;">
+                                
+                                <div class="d-flex justify-content-between align-items-baseline mb-3">
+                                    <div>
+                                        <span class="fs-3 fw-bold text-dark" id="modalSidebarPrice">₹850</span>
+                                        <span class="text-muted small"> / night</span>
+                                    </div>
+                                    <span class="badge bg-light text-secondary border px-2 py-1 small">
+                                        <i class="fa-solid fa-shield-halved text-success me-1"></i> Direct Host Payout
+                                    </span>
+                                </div>
+
+                                <div id="bookingAlert" class="alert alert-danger py-2 px-3 small d-none" role="alert"></div>
+
+                                <form onsubmit="handleBookingWithPayment(event)">
+                                    <input type="hidden" id="bookingPropertyId">
+
+                                    <!-- Date Selection -->
+                                    <div class="p-3 bg-light rounded-3 border mb-3">
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-6">
+                                                <label class="form-label fw-bold text-dark small mb-1">Check-in</label>
+                                                <input type="date" id="checkInDate" class="form-control rounded-2 bg-white" onchange="calculateReservationCost()" required>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="form-label fw-bold text-dark small mb-1">Check-out</label>
+                                                <input type="date" id="checkOutDate" class="form-control rounded-2 bg-white" onchange="calculateReservationCost()" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- How many guests check in -->
+                                        <div>
+                                            <label class="form-label fw-bold text-dark small mb-1 d-flex justify-content-between">
+                                                <span><i class="fa-solid fa-user-group text-success me-1"></i> Guests Checking In</span>
+                                                <span class="text-muted small" id="guestCountBadge">1 Guest</span>
+                                            </label>
+                                            <div class="input-group">
+                                                <button class="btn btn-outline-secondary bg-white px-3" type="button" onclick="changeGuestCount(-1)"><i class="fa-solid fa-minus small"></i></button>
+                                                <input type="number" id="bookingGuestsCount" class="form-control text-center fw-bold bg-white" value="1" min="1" max="10" onchange="calculateReservationCost()" required>
+                                                <button class="btn btn-outline-secondary bg-white px-3" type="button" onclick="changeGuestCount(1)"><i class="fa-solid fa-plus small"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Booking Amount Breakdown -->
+                                    <div id="bookingCostBreakdown" class="mb-3 p-3 bg-success bg-opacity-10 rounded-3 border border-success-subtle">
+                                        <div class="d-flex justify-content-between small text-secondary mb-1">
+                                            <span id="costCalculationFormula">₹850 × 1 night</span>
+                                            <span id="costBaseTotal" class="fw-semibold">₹850</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between small text-secondary mb-1">
+                                            <span>Village Community & Heritage Fund</span>
+                                            <span class="text-success fw-semibold">₹0 (Free)</span>
+                                        </div>
+                                        <hr class="my-2 border-success-subtle">
+                                        <div class="d-flex justify-content-between fw-bold text-dark">
+                                            <span>Total Booking Amount</span>
+                                            <span id="costGrandTotal" class="text-success fs-5">₹850</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Guest Details -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-semibold small">Your Full Name</label>
+                                        <input type="text" id="guestName" class="form-control rounded-3" placeholder="e.g. Vikram Rawat" required>
+                                    </div>
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-7">
+                                            <label class="form-label fw-semibold small">WhatsApp Number</label>
+                                            <input type="tel" id="guestPhone" class="form-control rounded-3" placeholder="10-digit number" required>
+                                        </div>
+                                        <div class="col-5">
+                                            <label class="form-label fw-semibold small">Email (Optional)</label>
+                                            <input type="email" id="guestEmail" class="form-control rounded-3" placeholder="guest@id.com">
+                                        </div>
+                                    </div>
+
+                                    <!-- PAYMENT METHOD SELECTION -->
+                                    <div class="mb-3">
+                                        <label class="form-label fw-bold text-dark small mb-2 d-flex justify-content-between align-items-center">
+                                            <span><i class="fa-solid fa-wallet text-success me-1"></i> Payment Method</span>
+                                            <span class="badge bg-light text-secondary border">Dummy Gateway</span>
+                                        </label>
+                                        
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-4">
+                                                <input type="radio" class="btn-check" name="paymentMethodRadio" id="payMethodUpi" value="UPI" checked onchange="switchPaymentForm('UPI')">
+                                                <label class="btn btn-outline-success w-100 rounded-3 py-2 text-center small fw-bold d-flex flex-column align-items-center" for="payMethodUpi">
+                                                    <i class="fa-solid fa-qrcode fs-5 mb-1"></i> UPI
+                                                </label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="radio" class="btn-check" name="paymentMethodRadio" id="payMethodCard" value="Card" onchange="switchPaymentForm('Card')">
+                                                <label class="btn btn-outline-success w-100 rounded-3 py-2 text-center small fw-bold d-flex flex-column align-items-center" for="payMethodCard">
+                                                    <i class="fa-regular fa-credit-card fs-5 mb-1"></i> Card
+                                                </label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input type="radio" class="btn-check" name="paymentMethodRadio" id="payMethodNetBanking" value="Net Banking" onchange="switchPaymentForm('Net Banking')">
+                                                <label class="btn btn-outline-success w-100 rounded-3 py-2 text-center small fw-bold d-flex flex-column align-items-center" for="payMethodNetBanking">
+                                                    <i class="fa-solid fa-building-columns fs-5 mb-1"></i> Net Banking
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- 1. UPI DUMMY PAYMENT BOX -->
+                                        <div id="payBoxUpi" class="p-3 bg-light rounded-3 border mb-3">
+                                            <label class="form-label small fw-semibold text-dark mb-1">Enter UPI ID / VPA</label>
+                                            <div class="input-group input-group-sm mb-2">
+                                                <span class="input-group-text bg-white"><i class="fa-solid fa-at text-muted"></i></span>
+                                                <input type="text" id="upiIdInput" class="form-control" placeholder="e.g. mobile@upi or name@okaxis" value="traveller@okaxis">
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-1">
+                                                <span class="badge bg-success bg-opacity-10 text-success border cursor-pointer small py-1" onclick="document.getElementById('upiIdInput').value='traveller@okaxis'" style="cursor:pointer;">
+                                                    <i class="fa-solid fa-bolt me-1"></i> Fill Test UPI
+                                                </span>
+                                                <span class="text-muted small" style="font-size:0.75rem;">Supports GPay, PhonePe, Paytm, BHIM</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- 2. CARD DUMMY PAYMENT BOX -->
+                                        <div id="payBoxCard" class="p-3 bg-light rounded-3 border mb-3 d-none">
+                                            <div class="mb-2">
+                                                <label class="form-label small fw-semibold text-dark mb-1">Card Number</label>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text bg-white"><i class="fa-regular fa-credit-card text-muted"></i></span>
+                                                    <input type="text" id="cardNumberInput" class="form-control" placeholder="4242 4242 4242 4242" value="4242 4242 4242 4242">
+                                                </div>
+                                            </div>
+                                            <div class="row g-2 mb-2">
+                                                <div class="col-6">
+                                                    <label class="form-label small fw-semibold text-dark mb-1">Expiry (MM/YY)</label>
+                                                    <input type="text" id="cardExpiryInput" class="form-control form-control-sm" placeholder="12/28" value="12/28">
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label small fw-semibold text-dark mb-1">CVV</label>
+                                                    <input type="password" id="cardCvvInput" class="form-control form-control-sm" placeholder="123" maxlength="4" value="123">
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-1">
+                                                <span class="badge bg-success bg-opacity-10 text-success border cursor-pointer small py-1" onclick="fillTestCard()" style="cursor:pointer;">
+                                                    <i class="fa-solid fa-bolt me-1"></i> Autofill Test Card
+                                                </span>
+                                                <span class="text-muted small" style="font-size:0.75rem;">Visa, MasterCard, RuPay</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- 3. NET BANKING DUMMY PAYMENT BOX -->
+                                        <div id="payBoxNetBanking" class="p-3 bg-light rounded-3 border mb-3 d-none">
+                                            <label class="form-label small fw-semibold text-dark mb-1">Select Bank</label>
+                                            <select id="netBankingSelect" class="form-select form-select-sm mb-2">
+                                                <option value="State Bank of India (SBI)" selected>State Bank of India (SBI)</option>
+                                                <option value="HDFC Bank">HDFC Bank</option>
+                                                <option value="ICICI Bank">ICICI Bank</option>
+                                                <option value="Axis Bank">Axis Bank</option>
+                                                <option value="Punjab National Bank (PNB)">Punjab National Bank (PNB)</option>
+                                                <option value="Bank of Baroda">Bank of Baroda</option>
+                                            </select>
+                                            <small class="text-muted d-block" style="font-size: 0.75rem;">
+                                                <i class="fa-solid fa-lock text-success me-1"></i> Simulated 256-bit secure bank authorization.
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    <!-- SUBMIT & PAY BUTTON -->
+                                    <button type="submit" id="bookingSubmitBtn" class="btn btn-brand w-100 rounded-3 py-3 fw-bold mb-2 shadow-sm">
+                                        <i class="fa-solid fa-lock me-1"></i> Pay <span id="payBtnAmount">₹850</span> & Confirm Booking
+                                    </button>
+                                    
+                                    <div class="p-2 bg-light rounded-3 border text-center mb-2" style="font-size: 0.74rem;">
+                                        <i class="fa-solid fa-clock-rotate-left text-success me-1"></i>
+                                        <strong class="text-dark">Cancellation Policy:</strong>
+                                        <span class="text-muted d-block mt-0.5">100% full refund for early cancellation (>1 day prior) • 50% deduction if cancelled 1 day before stay.</span>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <small class="text-muted" style="font-size: 0.75rem;">
+                                            <i class="fa-solid fa-shield-halved text-success me-1"></i> 100% Secure Dummy Sandbox • Instant Confirmation Voucher
+                                        </small>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- MODAL 4: BOOKING CONFIRMATION & RECEIPT VOUCHER MODAL -->
+    <!-- ======================================================== -->
+    <div class="modal fade" id="bookingReceiptModal" tabindex="-1" aria-labelledby="receiptModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+            <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+                <div class="modal-header border-0 bg-success text-white py-4 px-4 position-relative">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="bg-white text-success rounded-circle d-flex align-items-center justify-content-center shadow-sm" style="width: 54px; height: 54px;">
+                            <i class="fa-solid fa-circle-check fs-2"></i>
+                        </div>
+                        <div>
+                            <span class="badge bg-white text-success rounded-pill fw-bold px-3 py-1 mb-1">Payment Successful • Confirmed</span>
+                            <h4 class="fw-bold mb-0 text-white" id="receiptModalTitle">Booking Confirmed!</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" onclick="safeCloseModal('bookingReceiptModal')"></button>
+                </div>
+
+                <div class="modal-body p-4" id="printableReceiptArea">
+                    
+                    <!-- Top Reference Bar -->
+                    <div class="p-3 bg-light rounded-3 border d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+                        <div>
+                            <small class="text-muted d-block fw-semibold" style="font-size:0.75rem;">BOOKING REFERENCE</small>
+                            <span class="fs-5 fw-bold text-success" id="receiptBookingId">#RH-BK-1001</span>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block fw-semibold" style="font-size:0.75rem;">TRANSACTION ID</small>
+                            <code class="fw-bold text-dark fs-6" id="receiptTxnId">TXN_RH_20261118_9124</code>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block fw-semibold" style="font-size:0.75rem;">PAYMENT STATUS</small>
+                            <span class="badge bg-success px-3 py-2 rounded-pill fw-bold" id="receiptPaymentBadge">
+                                <i class="fa-solid fa-shield-check me-1"></i> PAID
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Stay Information Card -->
+                    <div class="card border rounded-4 p-3 mb-4 bg-white shadow-sm">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-md-3 col-12">
+                                <img id="receiptStayImg" src="" class="w-100 rounded-3 object-fit-cover shadow-sm" style="height: 110px;" alt="Homestay" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'">
+                            </div>
+                            <div class="col-md-9 col-12">
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <h5 class="fw-bold text-dark mb-1" id="receiptPropertyTitle">Heritage Mountain Homestay</h5>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-2 py-1 small">
+                                        <i class="fa-solid fa-shield-halved me-1"></i> Verified Stay
+                                    </span>
+                                </div>
+                                <p class="text-muted small mb-2">
+                                    <i class="fa-solid fa-location-dot text-danger me-1"></i> <span id="receiptStayLocation">Mana Village, Chamoli, Uttarakhand</span>
+                                </p>
+                                <div class="d-flex flex-wrap gap-3 small text-secondary">
+                                    <span><i class="fa-solid fa-user text-success me-1"></i> Host: <strong id="receiptHostName" class="text-dark">Gopal Rawat</strong></span>
+                                    <span><i class="fa-solid fa-phone text-primary me-1"></i> <span id="receiptHostPhone">+91 98765 43210</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation & Guest Details Grid -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6 col-12">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <small class="text-muted fw-bold d-block mb-2 text-uppercase" style="font-size:0.75rem;">Trip Dates & Guests</small>
+                                <div class="mb-1"><span class="text-secondary small">Check-in:</span> <strong id="receiptCheckIn" class="text-dark">20 Nov 2026</strong></div>
+                                <div class="mb-1"><span class="text-secondary small">Check-out:</span> <strong id="receiptCheckOut" class="text-dark">22 Nov 2026</strong></div>
+                                <div class="mb-1"><span class="text-secondary small">Duration:</span> <strong id="receiptDuration" class="text-dark">2 Nights</strong></div>
+                                <div><span class="text-secondary small">Guests:</span> <strong id="receiptGuests" class="text-success">2 Guests</strong></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-12">
+                            <div class="p-3 bg-light rounded-3 border h-100">
+                                <small class="text-muted fw-bold d-block mb-2 text-uppercase" style="font-size:0.75rem;">Guest Contact</small>
+                                <div class="mb-1"><span class="text-secondary small">Guest Name:</span> <strong id="receiptGuestName" class="text-dark">Vikram Rawat</strong></div>
+                                <div class="mb-1"><span class="text-secondary small">Mobile:</span> <strong id="receiptGuestPhone" class="text-dark">+91 98765 43210</strong></div>
+                                <div class="mb-1"><span class="text-secondary small">Email:</span> <span id="receiptGuestEmail" class="text-dark">guest@example.com</span></div>
+                                <div><span class="text-secondary small">Payment Method:</span> <strong id="receiptMethodName" class="text-success"><i class="fa-solid fa-qrcode me-1"></i> UPI</strong></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billing & Total Amount Card -->
+                    <div class="p-3 bg-success bg-opacity-10 rounded-3 border border-success-subtle mb-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2 small text-secondary">
+                            <span id="receiptCalculationFormula">₹600 × 2 nights</span>
+                            <span id="receiptBaseAmount" class="fw-semibold">₹1,200.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-2 small text-secondary">
+                            <span>Village Development & Community Fund</span>
+                            <span class="text-success fw-semibold">₹0.00 (Sponsored)</span>
+                        </div>
+                        <hr class="my-2 border-success-subtle">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="fw-bold fs-5 text-dark">Total Amount Paid</span>
+                                <small class="text-muted d-block" style="font-size:0.75rem;">Includes all taxes & authentic welcome meals</small>
+                            </div>
+                            <span class="fs-3 fw-bold text-success" id="receiptTotalAmount">₹1,200.00</span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-light rounded-3 border small mb-3">
+                        <strong class="text-dark"><i class="fa-solid fa-clock-rotate-left text-success me-1"></i> Cancellation & Refund Policy:</strong>
+                        <p class="text-muted mb-0 small mt-1">
+                            You can easily cancel your reservation anytime from your <strong>Profile Dashboard</strong>. <strong>100% full refund</strong> is issued for early cancellations (>1 day before check-in). If cancelling <strong>1 day before stay</strong>, 50% deduction applies and 50% is refunded directly.
+                        </p>
+                    </div>
+
+                    <div class="alert alert-info py-2 px-3 small rounded-3 mb-0">
+                        <i class="fa-solid fa-circle-info me-1"></i> Your reservation is officially registered. The local host has been notified via WhatsApp & SMS. Keep this voucher handy upon arrival in the village.
+                    </div>
+                </div>
+
+                <!-- MODAL FOOTER ACTIONS -->
+                <div class="modal-footer border-0 p-4 pt-0 d-flex justify-content-between flex-wrap gap-2">
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-outline-dark rounded-pill px-3 fw-bold" onclick="window.print()">
+                            <i class="fa-solid fa-print me-1"></i> Print / Save Voucher
+                        </button>
+                        <a href="profile.html" class="btn btn-outline-success rounded-pill px-3 fw-bold">
+                            <i class="fa-solid fa-calendar-check me-1"></i> View in My Profile
+                        </a>
+                    </div>
+                    <button type="button" class="btn btn-brand rounded-pill px-4 fw-bold" onclick="safeCloseModal('bookingReceiptModal')">
+                        Done & Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="appToast" class="toast align-items-center text-white bg-dark border-0 rounded-4 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body d-flex align-items-center py-3" id="toastMessage">
+                    <i class="fa-solid fa-circle-check text-success fs-5 me-2"></i> Action completed!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-3 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-dark text-white py-5 mt-5">
+        <div class="container text-center">
+            <h5 class="fw-bold mb-2"><i class="fa-solid fa-mountain-sun text-success me-2"></i>Reawakened Hills</h5>
+            <p class="text-white-50 small mb-4">Empowering rural mountain homes through sustainable tourism and direct marketplace bookings.</p>
+            <div class="d-flex justify-content-center flex-wrap gap-4 mb-4 small">
+                <a href="index.html" class="text-white-50 text-decoration-none">Home</a>
+                <a href="chardham.html" class="text-white-50 text-decoration-none">Char Dham Guide</a>
+                <a href="hidden-gems.html" class="text-white-50 text-decoration-none">Hidden Gems</a>
+                <a href="#explore" class="text-white-50 text-decoration-none">Explore Stays</a>
+            </div>
+            <small class="text-muted">MCA Minor Project Prototype | Jagan Institute of Management Studies (JIMS)</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/bootstrap.bundle.min.js"></script>
+
+    <!-- CORE VANILLA JAVASCRIPT CLIENT ENGINE -->
+    <script>
+        // State Management
+        let currentUser = null;
+        let allProperties = [];
+        let searchTimeout = null;
+
+        // DOM Initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            initSession();
+            setupDateInputs();
+            loadProperties();
+
+            // Auto-open host modal if redirected with openHost=true
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('openHost') === 'true') {
+                setTimeout(() => {
+                    handleBecomeHostClick();
+                }, 400);
+            }
+        });
+
+        // Safe Modal Helper (ensures zero crashes and clean open/close)
+        function safeOpenModal(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+            
+            // Remove lingering stale backdrops first
+            document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getOrCreateInstance(el);
+                    modal.show();
+                    return;
+                } catch(err) {
+                    console.warn('Bootstrap modal show warning:', err);
+                }
+            }
+
+            // Pure DOM/CSS fallback
+            el.style.display = 'block';
+            el.classList.add('show');
+            el.setAttribute('aria-modal', 'true');
+            el.removeAttribute('aria-hidden');
+            document.body.classList.add('modal-open');
+
+            if (!document.querySelector('.modal-backdrop')) {
+                const bd = document.createElement('div');
+                bd.className = 'modal-backdrop fade show';
+                bd.onclick = () => safeCloseModal(modalId);
+                document.body.appendChild(bd);
+            }
+        }
+
+        function safeCloseModal(modalId) {
+            const el = document.getElementById(modalId);
+            if (!el) return;
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getInstance(el) || bootstrap.Modal.getOrCreateInstance(el);
+                    if (modal) modal.hide();
+                } catch(err) {
+                    console.warn('Bootstrap modal hide warning:', err);
+                }
+            }
+
+            // Always ensure clean visual dismissal without disrupting transitions
+            setTimeout(() => {
+                el.classList.remove('show');
+                el.style.display = 'none';
+                el.setAttribute('aria-hidden', 'true');
+                el.removeAttribute('aria-modal');
+                document.body.classList.remove('modal-open');
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('padding-right');
+                document.querySelectorAll('.modal-backdrop').forEach(b => b.remove());
+            }, 120);
+        }
+
+        // Global delegated listener for close buttons, backdrops, and Escape key
+        document.addEventListener('click', (e) => {
+            const dismissBtn = e.target.closest('[data-bs-dismiss="modal"]') || e.target.closest('.btn-close');
+            if (dismissBtn) {
+                const modal = dismissBtn.closest('.modal');
+                if (modal) {
+                    safeCloseModal(modal.id);
+                }
+            }
+            if (e.target.classList && e.target.classList.contains('modal') && e.target.classList.contains('show')) {
+                safeCloseModal(e.target.id);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.show, .modal[style*="display: block"]').forEach(m => {
+                    safeCloseModal(m.id);
+                });
+            }
+        });
+
+        // Tab switcher for Login / Sign Up modal & forms
+        function switchAuthTab(tabName) {
+            const isRegister = (tabName === 'register' || tabName === 'signup');
+            const tabLogin = document.getElementById('tab-login');
+            const tabRegister = document.getElementById('tab-register');
+            const paneLogin = document.getElementById('pill-login');
+            const paneRegister = document.getElementById('pill-register');
+
+            if (isRegister) {
+                if (tabLogin) {
+                    tabLogin.classList.remove('active');
+                    tabLogin.setAttribute('aria-selected', 'false');
+                }
+                if (tabRegister) {
+                    tabRegister.classList.add('active');
+                    tabRegister.setAttribute('aria-selected', 'true');
+                }
+                if (paneLogin) {
+                    paneLogin.classList.remove('show', 'active');
+                    paneLogin.style.display = 'none';
+                }
+                if (paneRegister) {
+                    paneRegister.classList.add('show', 'active');
+                    paneRegister.style.display = 'block';
+                }
+            } else {
+                if (tabRegister) {
+                    tabRegister.classList.remove('active');
+                    tabRegister.setAttribute('aria-selected', 'false');
+                }
+                if (tabLogin) {
+                    tabLogin.classList.add('active');
+                    tabLogin.setAttribute('aria-selected', 'true');
+                }
+                if (paneRegister) {
+                    paneRegister.classList.remove('show', 'active');
+                    paneRegister.style.display = 'none';
+                }
+                if (paneLogin) {
+                    paneLogin.classList.add('show', 'active');
+                    paneLogin.style.display = 'block';
+                }
+            }
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+                try {
+                    const btn = isRegister ? tabRegister : tabLogin;
+                    if (btn) {
+                        const bTab = bootstrap.Tab.getOrCreateInstance(btn);
+                        bTab.show();
+                    }
+                } catch (e) {}
+            }
+        }
+
+        // Toast Helper
+        function showToast(message, isSuccess = true) {
+            const toastEl = document.getElementById('appToast');
+            const toastMsg = document.getElementById('toastMessage');
+            if (!toastEl || !toastMsg) return;
+            
+            const icon = isSuccess ? '<i class="fa-solid fa-circle-check text-success fs-5 me-2"></i>' : '<i class="fa-solid fa-circle-exclamation text-danger fs-5 me-2"></i>';
+            toastMsg.innerHTML = icon + ' <span>' + message + '</span>';
+
+            if (typeof bootstrap !== 'undefined' && bootstrap.Toast) {
+                const toast = bootstrap.Toast.getOrCreateInstance(toastEl, { delay: 4000 });
+                toast.show();
+            } else {
+                toastEl.classList.add('show');
+                setTimeout(() => toastEl.classList.remove('show'), 4000);
+            }
+        }
+
+        // Set minimum dates for booking
+        function setupDateInputs() {
+            const today = new Date().toISOString().split('T')[0];
+            const checkIn = document.getElementById('checkInDate');
+            const checkOut = document.getElementById('checkOutDate');
+            if (checkIn && checkOut) {
+                checkIn.min = today;
+                checkOut.min = today;
+                checkIn.addEventListener('change', () => {
+                    checkOut.min = checkIn.value;
+                });
+            }
+        }
+
+        // ==========================================
+        // 1. SESSION & AUTHENTICATION
+        // ==========================================
+        function initSession() {
+            try {
+                const stored = localStorage.getItem('reawakened_user');
+                if (stored) {
+                    currentUser = JSON.parse(stored);
+                    updateNavbarUser();
+                }
+            } catch (e) {
+                console.error('Session retrieval error:', e);
+            }
+        }
+
+        function updateNavbarUser() {
+            const navContainer = document.getElementById('navAuthContainer');
+            if (!navContainer) return;
+
+            if (currentUser) {
+                navContainer.innerHTML = `
+                    <button class="btn btn-host" onclick="handleBecomeHostClick()">
+                        <i class="fa-solid fa-house-chimney-user me-1"></i> Become a Host
+                    </button>
+                    <a href="profile.html" class="btn btn-light rounded-pill px-3 fw-bold border d-flex align-items-center justify-content-center gap-2 text-decoration-none" title="View My Profile">
+                        <i class="fa-solid fa-circle-user text-success fs-5"></i>
+                        <span>Profile (${escapeHtml(currentUser.name.split(' ')[0])})</span>
+                    </a>
+                    <button class="btn btn-outline-danger rounded-pill px-3 fw-bold btn-sm" onclick="handleLogout()" title="Sign Out">
+                        <i class="fa-solid fa-arrow-right-from-bracket me-1"></i> Log Out
+                    </button>
+                `;
+            } else {
+                navContainer.innerHTML = `
+                    <button class="btn btn-host" onclick="handleBecomeHostClick()">
+                        <i class="fa-solid fa-house-chimney-user me-1"></i> Become a Host
+                    </button>
+                    <a href="login.html" class="btn btn-outline-dark rounded-pill px-3 fw-bold text-decoration-none" id="authBtn">
+                        Log In
+                    </a>
+                    <a href="signup.html" class="btn btn-success rounded-pill px-3 fw-bold text-decoration-none" id="signUpBtn" style="background-color: var(--brand-green); border-color: var(--brand-green);">
+                        Sign Up
+                    </a>
+                `;
+            }
+        }
+
+        function handleBecomeHostClick() {
+            if (!currentUser) {
+                // Redirect directly to login page
+                window.location.href = 'login.html?redirect=index.html';
+                return;
+            }
+            safeOpenModal('hostModal');
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('authAlert');
+            const submitBtn = document.getElementById('loginBtn');
+            alertBox.classList.add('d-none');
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Logging in...';
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to authenticate.');
+                }
+
+                currentUser = data.user;
+                localStorage.setItem('reawakened_user', JSON.stringify(currentUser));
+                updateNavbarUser();
+
+                safeCloseModal('authModal');
+                showToast(`Welcome back, ${currentUser.name}!`);
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Log In';
+            }
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('authAlert');
+            const submitBtn = document.getElementById('registerBtn');
+            alertBox.classList.add('d-none');
+
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const phone = document.getElementById('regPhone').value.trim();
+            const password = document.getElementById('regPassword').value;
+            const role = document.getElementById('regRole').value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Creating Account...';
+
+            try {
+                const res = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, password, role })
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Registration failed.');
+                }
+
+                currentUser = data.user;
+                localStorage.setItem('reawakened_user', JSON.stringify(currentUser));
+                updateNavbarUser();
+
+                safeCloseModal('authModal');
+                showToast(`Account created! Welcome, ${currentUser.name}!`);
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Create Account';
+            }
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('reawakened_user');
+            updateNavbarUser();
+            showToast('You have been logged out.');
+        }
+
+        // ==========================================
+        // 2. DISCOVERY & PROPERTIES FETCHING
+        // ==========================================
+        function debounceSearch() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                loadProperties();
+            }, 300);
+        }
+
+        async function loadProperties() {
+            const grid = document.getElementById('propertiesGrid');
+            const countBadge = document.getElementById('propertiesCount');
+            const clearBtn = document.getElementById('clearFilterBtn');
+            const district = document.getElementById('districtFilter').value;
+            const experience = document.getElementById('experienceFilter').value;
+            const search = document.getElementById('searchInput').value.trim();
+
+            // Toggle clear button
+            if (search || district || experience !== 'all') {
+                if (clearBtn) clearBtn.classList.remove('d-none');
+            } else {
+                if (clearBtn) clearBtn.classList.add('d-none');
+            }
+
+            let query = `/api/properties?`;
+            const params = [];
+            if (search) params.push(`search=${encodeURIComponent(search)}`);
+            if (district) params.push(`district=${encodeURIComponent(district)}`);
+            query += params.join('&');
+
+            try {
+                const res = await fetch(query);
+                if (!res.ok) throw new Error('Failed to load listings');
+                const properties = await res.json();
+                allProperties = properties;
+
+                // Client-side experience filter if selected
+                let filtered = properties;
+                if (experience === 'chardham') {
+                    filtered = properties.filter(p => ['Chamoli', 'Rudraprayag', 'Uttarkashi'].includes(p.district));
+                } else if (experience === 'offbeat') {
+                    filtered = properties.filter(p => !['Chamoli', 'Rudraprayag'].includes(p.district) || p.village.toLowerCase().includes('khirsu') || p.village.toLowerCase().includes('bagori'));
+                }
+
+                countBadge.innerHTML = `<i class="fa-solid fa-house me-1"></i> ${filtered.length} Authentic Stays`;
+                renderProperties(filtered);
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="text-danger fs-3 mb-2"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <h5 class="fw-bold">Unable to load properties</h5>
+                        <p class="text-muted small">${err.message}</p>
+                        <button class="btn btn-outline-success btn-sm rounded-pill" onclick="loadProperties()">Try Again</button>
+                    </div>
+                `;
+            }
+        }
+
+        function handleSearch(e) {
+            e.preventDefault();
+            loadProperties();
+            const exploreSection = document.getElementById('explore');
+            if (exploreSection) {
+                exploreSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function renderProperties(properties) {
+            const grid = document.getElementById('propertiesGrid');
+            if (!properties || properties.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <div class="text-muted fs-1 mb-3"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <h5 class="fw-bold">No homestays found in this location</h5>
+                        <p class="text-muted small">Try searching another village or clear the district filter.</p>
+                        <button class="btn btn-outline-success rounded-pill btn-sm px-4" onclick="resetFilters()">Reset All Filters</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = properties.map(property => {
+                const img = property.image_url || 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80';
+                const formattedPrice = Number(property.price_per_night).toLocaleString('en-IN');
+                const rating = property.rating ? Number(property.rating).toFixed(2) : '4.90';
+                const safeTitle = escapeHtml(property.title);
+
+                let photoCountBadge = '';
+                if (property.images) {
+                    try {
+                        const parsed = typeof property.images === 'string' ? JSON.parse(property.images) : property.images;
+                        if (Array.isArray(parsed) && parsed.length > 1) {
+                            photoCountBadge = `<span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-0 m-2 px-2 py-1 rounded-pill small" style="z-index:2; font-size:0.75rem;"><i class="fa-solid fa-camera me-1"></i> ${parsed.length} Photos</span>`;
+                        }
+                    } catch(e) {}
+                }
+
+                return `
+                    <div class="col-lg-4 col-md-6 col-12" id="prop-${property.id}">
+                        <div class="card stay-card h-100">
+                            <div class="stay-img-wrapper position-relative" onclick="openBookingModal(${property.id})" style="cursor: pointer;" title="Click to view all photos and details">
+                                ${property.is_verified ? '<span class="badge-verified"><i class="fa-solid fa-shield-halved me-1 text-success"></i> Photo Verified</span>' : ''}
+                                ${photoCountBadge}
+                                <img src="${img}" class="stay-img" alt="${safeTitle}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'">
+                            </div>
+                            <div class="card-body p-4 d-flex flex-column justify-content-between">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted fw-bold"><i class="fa-solid fa-map-pin me-1 text-danger"></i> ${escapeHtml(property.village)}, ${escapeHtml(property.district)}</small>
+                                        <span class="badge bg-light text-dark fw-bold"><i class="fa-solid fa-star text-warning me-1"></i> ${rating}</span>
+                                    </div>
+                                    <h5 class="fw-bold mb-2" onclick="openBookingModal(${property.id})" style="cursor: pointer;" title="Click to view all photos and details">${safeTitle}</h5>
+                                    <p class="text-muted small mb-3">${escapeHtml(property.description || 'Restored ancestral mountain house in Uttarakhand.')}</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center pt-2 border-top mt-2">
+                                    <div>
+                                        <span class="price-tag">₹${formattedPrice}</span> <small class="text-muted">/ night</small>
+                                    </div>
+                                    ${(currentUser && currentUser.id == property.host_id) ? `
+                                        <a href="profile.html" class="btn btn-outline-success rounded-pill px-3 btn-sm fw-bold">
+                                            <i class="fa-solid fa-pen-to-square me-1"></i> Edit in Profile
+                                        </a>
+                                    ` : `
+                                        <button class="btn btn-outline-success rounded-pill px-3 btn-sm fw-bold" onclick="openBookingModal(${property.id})">
+                                            <i class="fa-solid fa-mountain-sun me-1"></i> Request Stay
+                                        </button>
+                                    `}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('districtFilter').value = '';
+            document.getElementById('experienceFilter').value = 'all';
+            loadProperties();
+        }
+
+        // ==========================================
+        // 3. HOST ONBOARDING (BECOME A HOST - MULTI-PHOTO UPLOAD)
+        // ==========================================
+        function previewSlotPhoto(input, previewId) {
+            const preview = document.getElementById(previewId);
+            if (!preview) return;
+            const file = input.files && input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+
+        async function handleHostSubmission(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('hostAlert');
+            const submitBtn = document.getElementById('hostSubmitBtn');
+            alertBox.classList.add('d-none');
+
+            const title = document.getElementById('hostTitle').value.trim();
+            const village = document.getElementById('hostVillage').value.trim();
+            const district = document.getElementById('hostDistrict').value;
+            const price = document.getElementById('hostPrice').value;
+
+            // Description, Amenities, and Maps
+            const description = document.getElementById('hostDescription') ? document.getElementById('hostDescription').value.trim() : '';
+            const maps_url = document.getElementById('hostMapsUrl') ? document.getElementById('hostMapsUrl').value.trim() : '';
+
+            const selectedAmenities = [];
+            document.querySelectorAll('.host-amenity-cb:checked').forEach(cb => {
+                if (cb.value) selectedAmenities.push(cb.value);
+            });
+            const customAm = document.getElementById('hostCustomAmenities') ? document.getElementById('hostCustomAmenities').value.trim() : '';
+            if (customAm) selectedAmenities.push(customAm);
+            const amenities = selectedAmenities.join(', ');
+
+            const houseFile = document.getElementById('photoHouse').files[0];
+            const roomFile = document.getElementById('photoRoom').files[0];
+            const extra1File = document.getElementById('photoExtra1').files[0];
+            const extra2File = document.getElementById('photoExtra2').files[0];
+            const extra3File = document.getElementById('photoExtra3').files[0];
+
+            if (!houseFile || !roomFile || !extra1File) {
+                alertBox.textContent = 'Minimum 3 photos required: Please select a Whole House exterior photo, a Room interior photo, and an Extra view photo.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            const filesToUpload = [houseFile, roomFile, extra1File];
+            if (extra2File) filesToUpload.push(extra2File);
+            if (extra3File) filesToUpload.push(extra3File);
+
+            if (filesToUpload.length < 3 || filesToUpload.length > 5) {
+                alertBox.textContent = `You can upload a minimum of 3 and maximum of 5 photos. Current count: ${filesToUpload.length}.`;
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('village', village);
+            formData.append('district', district);
+            formData.append('price_per_night', price);
+            formData.append('description', description);
+            formData.append('amenities', amenities);
+            formData.append('maps_url', maps_url);
+            formData.append('host_id', currentUser ? currentUser.id : 1);
+
+            // Append each file to 'photos' field
+            filesToUpload.forEach(f => {
+                formData.append('photos', f);
+            });
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Validating & Uploading Photos...';
+
+            try {
+                const res = await fetch('/api/properties', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to list property.');
+                }
+
+                // Close modal & reset form
+                safeCloseModal('hostModal');
+                document.getElementById('hostForm').reset();
+                ['previewHouse', 'previewRoom', 'previewExtra1', 'previewExtra2', 'previewExtra3'].forEach(id => {
+                    const p = document.getElementById(id);
+                    if (p) { p.src = ''; p.style.display = 'none'; }
+                });
+
+                showToast(`🎉 Congratulations! Your ancestral home "${escapeHtml(title)}" was verified and published live with ${filesToUpload.length} photos!`);
+
+                // Refresh listings
+                loadProperties();
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-cloud-arrow-up me-1"></i> Publish Listing Now';
+            }
+        }
+
+        // ==========================================
+        // 4. STAY DETAILS & BOOKING ENGINE (AIRBNB STYLE)
+        // ==========================================
+        let currentModalPhotos = [];
+        let currentPhotoIndex = 0;
+        let currentModalProperty = null;
+
+        const photoLabels = [
+            '1. Whole House View (Exterior)',
+            '2. Room View (Interior)',
+            '3. Extra View (Balcony / Valley)',
+            '4. Kitchen / Dining Area',
+            '5. Heritage Mountain Architecture'
+        ];
+
+        function getAmenityIcon(item) {
+            const lower = item.toLowerCase();
+            if (lower.includes('park')) return '<i class="fa-solid fa-square-parking text-primary fs-5 me-2"></i>';
+            if (lower.includes('wifi') || lower.includes('wi-fi') || lower.includes('internet')) return '<i class="fa-solid fa-wifi text-success fs-5 me-2"></i>';
+            if (lower.includes('tv') || lower.includes('television')) return '<i class="fa-solid fa-tv text-info fs-5 me-2"></i>';
+            if (lower.includes('fridge') || lower.includes('refriger')) return '<i class="fa-solid fa-snowflake text-primary fs-5 me-2"></i>';
+            if (lower.includes('kitchen') || lower.includes('cook') || lower.includes('chulha')) return '<i class="fa-solid fa-kitchen-set text-warning fs-5 me-2"></i>';
+            if (lower.includes('meal') || lower.includes('food') || lower.includes('chai') || lower.includes('roti') || lower.includes('cuisine')) return '<i class="fa-solid fa-utensils text-success fs-5 me-2"></i>';
+            if (lower.includes('water') || lower.includes('bath') || lower.includes('geyser') || lower.includes('shower')) return '<i class="fa-solid fa-shower text-danger fs-5 me-2"></i>';
+            if (lower.includes('view') || lower.includes('balcony') || lower.includes('mountain') || lower.includes('sunrise')) return '<i class="fa-solid fa-mountain-sun text-secondary fs-5 me-2"></i>';
+            if (lower.includes('fire') || lower.includes('hearth') || lower.includes('bonfire') || lower.includes('camp')) return '<i class="fa-solid fa-fire text-danger fs-5 me-2"></i>';
+            if (lower.includes('guide') || lower.includes('trek') || lower.includes('walk')) return '<i class="fa-solid fa-person-hiking text-success fs-5 me-2"></i>';
+            return '<i class="fa-solid fa-circle-check text-success fs-5 me-2"></i>';
+        }
+
+        async function openBookingModal(propertyId) {
+            let property = allProperties.find(p => p.id == propertyId);
+            
+            // If not found in local array, fetch directly from API
+            if (!property) {
+                try {
+                    const res = await fetch(`/api/properties/${propertyId}`);
+                    if (res.ok) property = await res.json();
+                } catch(e) {}
+            }
+
+            if (!property) {
+                showToast('Unable to load property details. Please try again.', false);
+                return;
+            }
+
+            currentModalProperty = property;
+            document.getElementById('bookingPropertyId').value = property.id;
+            
+            // Header & Details
+            document.getElementById('modalStayName').innerText = property.title;
+            document.getElementById('modalStayLocation').innerText = `${property.village}, ${property.district}`;
+            document.getElementById('modalStayVillagePin').innerText = `${property.village}, ${property.district}`;
+            document.getElementById('modalStayAddressLine').innerText = `${property.village}, ${property.district}, Uttarakhand, India`;
+            
+            const formattedPrice = '₹' + Number(property.price_per_night).toLocaleString('en-IN');
+            document.getElementById('modalStayPriceDisplay').innerText = `${formattedPrice} / night`;
+            document.getElementById('modalSidebarPrice').innerText = formattedPrice;
+
+            if (property.rating) {
+                document.getElementById('modalStayRating').innerHTML = `<i class="fa-solid fa-star text-warning me-1"></i> ${Number(property.rating).toFixed(2)}`;
+            }
+
+            // Description (2-3 lines cultural story)
+            const descEl = document.getElementById('modalStayDescription');
+            descEl.innerText = property.description || `Authentic restored ancestral mountain homestay in ${property.village}, ${property.district}. Experience traditional Himalayan hospitality, slow-cooked Pahadi meals, and peaceful mountain views.`;
+
+            // Google Maps Link
+            const mapsBtn = document.getElementById('modalStayMapsLink');
+            const mapsUrl = (property.maps_url && property.maps_url.trim() !== '')
+                ? property.maps_url.trim()
+                : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${property.village}, ${property.district}, Uttarakhand, India`)}`;
+            mapsBtn.href = mapsUrl;
+
+            // Host Details & Message Host
+            const hostName = property.host_name || 'Local Mountain Host';
+            document.getElementById('modalHostName').innerText = `Hosted by ${hostName}`;
+            document.getElementById('modalHostAvatar').innerText = hostName.charAt(0).toUpperCase();
+
+            // WhatsApp link for Message Host
+            const rawPhone = property.host_phone || '919876543210';
+            const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
+            const waPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+            const waMsg = encodeURIComponent(`Namaste ${hostName}! I found your ancestral home "${property.title}" in ${property.village} on Reawakened Hills. Could you please share more details regarding my stay?`);
+            document.getElementById('modalHostWhatsAppBtn').href = `https://wa.me/${waPhone}?text=${waMsg}`;
+
+            // Reset quick message box
+            const qBox = document.getElementById('hostQuickMessageBox');
+            if (qBox) qBox.classList.add('d-none');
+            const qSuccess = document.getElementById('hostQuickMessageSuccess');
+            if (qSuccess) qSuccess.classList.add('d-none');
+            const qInput = document.getElementById('hostQuickMessageText');
+            if (qInput) qInput.value = '';
+
+            // Extract all photos
+            let photos = [];
+            if (property.images) {
+                try {
+                    const parsed = typeof property.images === 'string' ? JSON.parse(property.images) : property.images;
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        photos = parsed;
+                    }
+                } catch(e) {}
+            }
+            if (photos.length === 0 && property.image_url) {
+                photos = [property.image_url];
+            }
+            if (photos.length === 0) {
+                photos = ['https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'];
+            }
+
+            currentModalPhotos = photos;
+            currentPhotoIndex = 0;
+            renderGallery();
+
+            // What this place offers (Amenities section)
+            renderAmenities(property.amenities);
+
+            // Prefill guest details if logged in
+            if (currentUser) {
+                document.getElementById('guestName').value = currentUser.name || '';
+                if (currentUser.email) document.getElementById('guestEmail').value = currentUser.email;
+                if (currentUser.phone) document.getElementById('guestPhone').value = currentUser.phone;
+            }
+
+            // Calculate cost breakdown if dates set
+            calculateReservationCost();
+
+            document.getElementById('bookingAlert').classList.add('d-none');
+            safeOpenModal('bookingModal');
+        }
+
+        function renderGallery() {
+            const mainImg = document.getElementById('galleryMainImg');
+            const counter = document.getElementById('galleryPhotoCounter');
+            const label = document.getElementById('galleryPhotoLabel');
+            const thumbRow = document.getElementById('galleryThumbnailsRow');
+
+            if (!currentModalPhotos || currentModalPhotos.length === 0) return;
+
+            mainImg.src = currentModalPhotos[currentPhotoIndex];
+            counter.innerHTML = `<i class="fa-solid fa-camera me-1"></i> Photo ${currentPhotoIndex + 1} of ${currentModalPhotos.length}`;
+            label.textContent = photoLabels[currentPhotoIndex] || `Photo ${currentPhotoIndex + 1}`;
+
+            // Render thumbnails
+            thumbRow.innerHTML = currentModalPhotos.map((url, idx) => `
+                <div class="thumbnail-card ${idx === currentPhotoIndex ? 'active' : ''}" onclick="selectGalleryPhoto(${idx})" title="${photoLabels[idx] || 'Photo ' + (idx + 1)}">
+                    <img src="${url}" alt="Thumbnail ${idx + 1}" onerror="this.src='https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'">
+                </div>
+            `).join('');
+        }
+
+        function selectGalleryPhoto(index) {
+            if (index >= 0 && index < currentModalPhotos.length) {
+                currentPhotoIndex = index;
+                renderGallery();
+            }
+        }
+
+        function prevGalleryPhoto() {
+            if (!currentModalPhotos || currentModalPhotos.length <= 1) return;
+            currentPhotoIndex = (currentPhotoIndex - 1 + currentModalPhotos.length) % currentModalPhotos.length;
+            renderGallery();
+        }
+
+        function nextGalleryPhoto() {
+            if (!currentModalPhotos || currentModalPhotos.length <= 1) return;
+            currentPhotoIndex = (currentPhotoIndex + 1) % currentModalPhotos.length;
+            renderGallery();
+        }
+
+        function renderAmenities(rawAmenities) {
+            const container = document.getElementById('modalStayAmenitiesList');
+            if (!container) return;
+
+            let list = [];
+            if (rawAmenities && rawAmenities.trim() !== '') {
+                list = rawAmenities.split(',').map(s => s.trim()).filter(Boolean);
+            }
+
+            // If empty, supply standard mountain stay amenities
+            if (list.length === 0) {
+                list = ['Free Parking', 'Wi-Fi', 'TV', 'Refrigerator', 'Kitchen', 'Traditional Pahadi Meals'];
+            }
+
+            container.innerHTML = list.map(item => `
+                <div class="col-sm-6 col-12">
+                    <div class="amenity-chip d-flex align-items-center">
+                        ${getAmenityIcon(item)}
+                        <span class="small fw-semibold text-dark">${escapeHtml(item)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function changeGuestCount(delta) {
+            const input = document.getElementById('bookingGuestsCount');
+            const badge = document.getElementById('guestCountBadge');
+            if (!input) return;
+
+            let val = parseInt(input.value, 10) || 1;
+            val = Math.max(1, Math.min(10, val + delta));
+            input.value = val;
+
+            if (badge) {
+                badge.textContent = `${val} Guest${val > 1 ? 's' : ''}`;
+            }
+
+            calculateReservationCost();
+        }
+
+        function switchPaymentForm(method) {
+            const upiBox = document.getElementById('payBoxUpi');
+            const cardBox = document.getElementById('payBoxCard');
+            const netBankingBox = document.getElementById('payBoxNetBanking');
+
+            if (upiBox) upiBox.classList.add('d-none');
+            if (cardBox) cardBox.classList.add('d-none');
+            if (netBankingBox) netBankingBox.classList.add('d-none');
+
+            if (method === 'UPI' && upiBox) {
+                upiBox.classList.remove('d-none');
+            } else if (method === 'Card' && cardBox) {
+                cardBox.classList.remove('d-none');
+            } else if (method === 'Net Banking' && netBankingBox) {
+                netBankingBox.classList.remove('d-none');
+            }
+        }
+
+        function fillTestCard() {
+            const num = document.getElementById('cardNumberInput');
+            const exp = document.getElementById('cardExpiryInput');
+            const cvv = document.getElementById('cardCvvInput');
+            if (num) num.value = '4242 4242 4242 4242';
+            if (exp) exp.value = '12/28';
+            if (cvv) cvv.value = '123';
+        }
+
+        let currentCalculatedTotal = 850;
+        let currentCalculatedNights = 1;
+
+        function calculateReservationCost() {
+            const checkInVal = document.getElementById('checkInDate').value;
+            const checkOutVal = document.getElementById('checkOutDate').value;
+            const guestsCount = parseInt(document.getElementById('bookingGuestsCount').value, 10) || 1;
+            const guestBadge = document.getElementById('guestCountBadge');
+            if (guestBadge) {
+                guestBadge.textContent = `${guestsCount} Guest${guestsCount > 1 ? 's' : ''}`;
+            }
+
+            let nights = 1;
+            if (checkInVal && checkOutVal) {
+                const checkIn = new Date(checkInVal);
+                const checkOut = new Date(checkOutVal);
+                const diffTime = checkOut - checkIn;
+                nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                if (nights <= 0) nights = 1;
+            }
+
+            currentCalculatedNights = nights;
+            const nightly = (currentModalProperty && Number(currentModalProperty.price_per_night)) ? Number(currentModalProperty.price_per_night) : 850;
+            const total = nights * nightly;
+            currentCalculatedTotal = total;
+
+            const formulaEl = document.getElementById('costCalculationFormula');
+            const baseTotalEl = document.getElementById('costBaseTotal');
+            const grandTotalEl = document.getElementById('costGrandTotal');
+            const payBtnAmountEl = document.getElementById('payBtnAmount');
+
+            if (formulaEl) formulaEl.innerText = `₹${nightly.toLocaleString('en-IN')} × ${nights} night${nights > 1 ? 's' : ''} • ${guestsCount} Guest${guestsCount > 1 ? 's' : ''}`;
+            if (baseTotalEl) baseTotalEl.innerText = `₹${total.toLocaleString('en-IN')}`;
+            if (grandTotalEl) grandTotalEl.innerText = `₹${total.toLocaleString('en-IN')}`;
+            if (payBtnAmountEl) payBtnAmountEl.innerText = `₹${total.toLocaleString('en-IN')}`;
+        }
+
+        function toggleHostMessageInput() {
+            const box = document.getElementById('hostQuickMessageBox');
+            if (!box) return;
+            box.classList.toggle('d-none');
+            if (!box.classList.contains('d-none')) {
+                const input = document.getElementById('hostQuickMessageText');
+                if (input) input.focus();
+            }
+        }
+
+        function sendHostQuickQuestion() {
+            const input = document.getElementById('hostQuickMessageText');
+            const success = document.getElementById('hostQuickMessageSuccess');
+            const question = input ? input.value.trim() : '';
+
+            if (!question) {
+                if (input) input.focus();
+                return;
+            }
+
+            if (success) {
+                success.classList.remove('d-none');
+            }
+
+            if (currentModalProperty && currentModalProperty.host_phone) {
+                const cleanPhone = (currentModalProperty.host_phone || '').replace(/[^0-9]/g, '');
+                const waPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+                const guestName = currentUser ? currentUser.name : (document.getElementById('guestName').value.trim() || 'Guest');
+                const text = encodeURIComponent(`Namaste ${currentModalProperty.host_name || 'Host'}! I have a question regarding "${currentModalProperty.title}": "${question}" - from ${guestName}`);
+                window.open(`https://wa.me/${waPhone}?text=${text}`, '_blank');
+            }
+
+            if (input) input.value = '';
+        }
+
+        // ==========================================
+        // DUMMY PAYMENT & RESERVATION CONFIRMATION
+        // ==========================================
+        async function handleBookingWithPayment(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('bookingAlert');
+            const submitBtn = document.getElementById('bookingSubmitBtn');
+            alertBox.classList.add('d-none');
+
+            const property_id = document.getElementById('bookingPropertyId').value;
+            const guest_name = document.getElementById('guestName').value.trim();
+            const guest_phone = document.getElementById('guestPhone').value.trim();
+            const guest_email = document.getElementById('guestEmail').value.trim();
+            const check_in = document.getElementById('checkInDate').value;
+            const check_out = document.getElementById('checkOutDate').value;
+            const guests_count = parseInt(document.getElementById('bookingGuestsCount').value, 10) || 1;
+
+            if (new Date(check_out) <= new Date(check_in)) {
+                alertBox.textContent = 'Check-out date must be after check-in date.';
+                alertBox.classList.remove('d-none');
+                return;
+            }
+
+            // Get selected payment method
+            const selectedMethodRadio = document.querySelector('input[name="paymentMethodRadio"]:checked');
+            const payment_method = selectedMethodRadio ? selectedMethodRadio.value : 'UPI';
+
+            // Validate dummy inputs based on method
+            if (payment_method === 'UPI') {
+                const upiId = document.getElementById('upiIdInput').value.trim();
+                if (!upiId || !upiId.includes('@')) {
+                    alertBox.textContent = 'Please enter a valid simulated UPI ID (e.g. name@okaxis or click Fill Test UPI).';
+                    alertBox.classList.remove('d-none');
+                    return;
+                }
+            } else if (payment_method === 'Card') {
+                const cardNum = document.getElementById('cardNumberInput').value.trim();
+                const cardCvv = document.getElementById('cardCvvInput').value.trim();
+                if (!cardNum || !cardCvv) {
+                    alertBox.textContent = 'Please enter valid dummy card details or click Autofill Test Card.';
+                    alertBox.classList.remove('d-none');
+                    return;
+                }
+            }
+
+            const total_amount = currentCalculatedTotal;
+            const transaction_id = `TXN_RH_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
+
+            // Simulated Payment Authorization with visual spinner
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<span class="spinner-border spinner-border-sm me-2"></span> Authorizing ₹${total_amount.toLocaleString('en-IN')} via ${payment_method}...`;
+
+            try {
+                // Realistic payment gateway simulation delay (1.2 seconds)
+                await new Promise(resolve => setTimeout(resolve, 1200));
+
+                const res = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        property_id,
+                        guest_name,
+                        guest_phone,
+                        guest_email,
+                        check_in,
+                        check_out,
+                        guests_count,
+                        total_amount,
+                        payment_method,
+                        payment_status: 'paid',
+                        transaction_id
+                    })
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    throw new Error(data.error || 'Failed to complete reservation payment.');
+                }
+
+                // Close booking modal
+                safeCloseModal('bookingModal');
+
+                // Open Confirmation Receipt Voucher Modal
+                showBookingReceipt(data.booking);
+                showToast(`🎉 Payment of ₹${total_amount.toLocaleString('en-IN')} confirmed via ${payment_method}! Booking voucher generated.`);
+
+            } catch (err) {
+                alertBox.textContent = err.message;
+                alertBox.classList.remove('d-none');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = `<i class="fa-solid fa-lock me-1"></i> Pay <span id="payBtnAmount">₹${total_amount.toLocaleString('en-IN')}</span> & Confirm Booking`;
+            }
+        }
+
+        // Display Official Booking Confirmation Receipt Modal
+        function showBookingReceipt(b) {
+            if (!b) return;
+
+            document.getElementById('receiptBookingId').textContent = `#RH-BK-${b.id}`;
+            document.getElementById('receiptTxnId').textContent = b.transaction_id || `TXN_RH_${Date.now()}`;
+            document.getElementById('receiptPropertyTitle').textContent = b.property_title || 'Himalayan Homestay';
+            document.getElementById('receiptStayLocation').textContent = `${b.village || 'Village'}, ${b.district || 'Uttarakhand'}, India`;
+            
+            const stayImg = document.getElementById('receiptStayImg');
+            if (stayImg) {
+                stayImg.src = b.image_url || (currentModalPhotos && currentModalPhotos[0]) || 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80';
+            }
+
+            document.getElementById('receiptHostName').textContent = b.host_name || 'Local Mountain Host';
+            document.getElementById('receiptHostPhone').textContent = b.host_phone || '+91 98765 43210';
+
+            const checkInFormatted = new Date(b.check_in).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            const checkOutFormatted = new Date(b.check_out).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+            document.getElementById('receiptCheckIn').textContent = checkInFormatted;
+            document.getElementById('receiptCheckOut').textContent = checkOutFormatted;
+            
+            const nights = currentCalculatedNights || 1;
+            document.getElementById('receiptDuration').textContent = `${nights} Night${nights > 1 ? 's' : ''}`;
+            
+            const guests = b.guests_count || 1;
+            document.getElementById('receiptGuests').textContent = `${guests} Guest${guests > 1 ? 's' : ''}`;
+
+            document.getElementById('receiptGuestName').textContent = b.guest_name;
+            document.getElementById('receiptGuestPhone').textContent = b.guest_phone;
+            document.getElementById('receiptGuestEmail').textContent = b.guest_email || 'Not provided';
+
+            const methodIcon = b.payment_method === 'Card' ? '<i class="fa-regular fa-credit-card text-primary me-1"></i> Card' : (b.payment_method === 'Net Banking' ? '<i class="fa-solid fa-building-columns text-info me-1"></i> Net Banking' : '<i class="fa-solid fa-qrcode text-success me-1"></i> UPI');
+            document.getElementById('receiptMethodName').innerHTML = methodIcon;
+
+            const totalFormatted = '₹' + Number(b.total_amount).toLocaleString('en-IN', { minimumFractionDigits: 2 });
+            const nightly = (currentModalProperty && Number(currentModalProperty.price_per_night)) ? Number(currentModalProperty.price_per_night) : 850;
+
+            document.getElementById('receiptCalculationFormula').textContent = `₹${nightly.toLocaleString('en-IN')} × ${nights} night${nights > 1 ? 's' : ''}`;
+            document.getElementById('receiptBaseAmount').textContent = totalFormatted;
+            document.getElementById('receiptTotalAmount').textContent = totalFormatted;
+
+            safeOpenModal('bookingReceiptModal');
+        }
+
+        // Utility: HTML Escaper
+        function escapeHtml(text) {
+            if (!text) return '';
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+    </script>
+</body>
+</html>

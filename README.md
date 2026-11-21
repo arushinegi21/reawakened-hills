@@ -62,10 +62,8 @@ UK_Tourism/
 ├── scripts/
 │   └── init-db.js              # Database initialization & seeding script
 ├── .env.example                # Sample environment configuration
-├── architecture.md             # System architecture & sequence diagrams
 ├── db.js                       # MySQL connection pool & failover engine
 ├── package.json                # Project dependencies and npm scripts
-├── PROJECT_DOCUMENTATION.md    # Academic project report & documentation
 ├── schema.sql                  # MySQL schema DDL & seed records
 └── server.js                   # Main Express application server
 ```

@@ -151,15 +151,6 @@ The relational schema consists of three normalized core tables:
 
 ---
 
-## 📜 Academic Attribution
-
-- **Project:** Minor Project - I (MCA 1st Semester)
-- **Institution:** Jagan Institute of Management Studies (JIMS), Rohini, New Delhi
-- **Affiliation:** Guru Gobind Singh Indraprastha University (GGSIPU), New Delhi
-- **Student:** Arushi Negi (Enrollment No.: 02514004426)
-- **Supervisor:** Mr. Sanjive, Department of IT
-
----
 
 ## 📄 License
 
